@@ -1,71 +1,78 @@
-* {
-    box-sizing: border-box;
-}
+/* * {
+box-sizing: border-box;
+} */
 
 header, .mybutton{
-    background-color: #ff6e57 ;
+    background-color: #BD5D38 ;
 }
 header{
-    height: 70px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 60px;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 500;
+    /* color:white; */
 }
-a{
+
+/* -------Navbar-------- */
+li{
     margin-bottom: 10px;
 }
 .sidebar {
-    height: 90vh;
-  }
-  .sidebar .nav-link {
+    height: 100vh;
+    background-color: #BD5D38;
+}
+.sidebar .nav-link {
     font-weight: 700;
     font-size: 1.2rem;
-    color: #333;
-  }
-  
-  .sidebar .nav-link.active {
-    color: #2470dc;
-  }
-  
-  .navbar .navbar-toggler {
+    color: #E2B9AC;
+}
+
+.sidebar .nav-link.active {
+    color: #fcf2ee;
+}
+
+.navbar .navbar-toggler {
     top: .25rem;
     right: 1rem;
-  }
-  .vac-img{
-    height: 250px;
+}
+
+/* -------Main Sub Section-------- */
+.vac-img{
+    height: 230px;
     object-fit: cover;
     object-position: 100% 80%;
-  }
-
-  .trip-details{
+}
+.trip-details-box{
     position:absolute;
     height: 150px;
     width: 80%;
     background-color:white;
     border-radius: 30px;
-    transform: translate(15%, 100%);
-    }
-    .sub-section{
-        width: 45vw;
-    }
-  /* @media (max-width: 767.98px) {
-    .sidebar {
-        top: 5rem;
-} 
-}*/
+    transform: translate(13%, 90%);
+}
+.sub-section{
+    width: 45vw;
+    background-color:rgb(233, 232, 232);
 
+}
 .form__field {
     width: 100%;
     border: 0;
-    /* text-align: center; */
-    /* border-bottom: 2px solid gray; */
+    font-weight: 600;
     outline: 0;
     font-size: 1.7rem;
     padding-left: 40px;
     background: transparent;
 }
-    
-  
+.dates{
+    padding-left: 40px;
+    font-weight: 500;
+}
+.dash-container{
+    height: 100vh;
+
+}
+

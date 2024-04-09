@@ -10,58 +10,71 @@
 
 <body>
     <div class="container-fluid g-0">
-        <header class=" ">
-          <a href="#" class="d-flex  me-md-auto text-dark text-decoration-none">
-            <span class="">My Trip Planner</span>
-          </a>
-          <!-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
-        </header>
-        <main class="d-flex flex-nowrap">
-            <nav id="sidebarMenu" class="ps-4 col-md-3 col-lg-2 d-md-block  sidebar collapse border-end"><!-- col-md-3 col-lg-2 -->
-                <div class="position-sticky pt-5">
-                  <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">
-                        Dashboard
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Itinerary
-                      </a>
-                      <div class="dates"></div>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Notes
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">
-                        Budget
-                      </a>
-                    </li>
-                  </ul>
-          
+
+        <main class="d-flex flex-nowrap"> 
+            <!-- Navbar -->
+            <nav id="sidebarMenu" class="ps-4 col-md-3 col-lg-2 d-md-block  sidebar collapse border-end" id="sideNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="position-fixed pt-5">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link active" href="#dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#itinerary">Itinerary</a>
+                            <div class="sub-item-list dates">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 1</span></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 2</span></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 3</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#notes">Notes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#budget">Budget</a></li>
+                    </ul>
                 </div>
             </nav>
+            <!-- End of Navbar -->
+
+            <!-- Main Sub Section-->
             <section class="main-content d-flex">
-                
-                <div class=" bg-light border-end position-relative sub-section">
-                    <div class="row g-0">
-                        <img src="/images/vacation.jpg" class="vac-img" alt="vacation-image">
-                        <div class="trip-details shadow-lg p-3">
-                            <input type="input" class="form__field" placeholder="Trip Name" name="name" id='name'/>
+                <!--Info Section-->
+                <div class="sub-section border-end">
+                    <!-- Dashboard-->
+                    <div class="dash-container" id="dashboard">
+                        <div class="bg-light border-end position-relative ">
+                            <div class="row g-0">
+                                <img class="vac-img" src="/images/vacation.jpg" alt="vacation-image">
+                                <div class="trip-details-box shadow-lg p-3">
+                                    <input type="input" class="form__field" placeholder="Trip Name" name="name" id='name'/>
+                                    <div class="dates mt-2">Apr 1 - Apr 8</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <hr class="m-0" />
+
+                    <!-- Itinerary-->
+                    <div class="dash-container" id="itinerary">Itinerary</div>
+                    <hr class="m-0" />
+
+                    <!-- Notes-->
+                    <div class="dash-container" id="notes">Notes</div>
+                    <hr class="m-0" />
+
+                    <!-- Budget-->
+                    <div class="dash-container" id="budget">Budget</div>
+                    <hr class="m-0" />
+                <!-- End of Info Section-->
                 </div>
 
-                <div class=" p-5 sub-section">
+                <!-- Map Section-->
+                <div class="sub-section">
+                    <div class="">
+                    </div>
                 </div>
-                
+                <hr class="m-0" />
+                <!-- End of Map Section-->
             </section>
+            <!-- End of Main Sub Section -->
         </main>
         
 </div>
