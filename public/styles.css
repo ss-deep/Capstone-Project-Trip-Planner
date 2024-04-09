@@ -1,8 +1,47 @@
-.d-flex {
-    display: flex !important;
+* {
+    box-sizing: border-box;
 }
 
-.mybutton{
-    background-color: #F75940 ;
+header, .mybutton{
+    background-color: #ff6e57 ;
 }
+header{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 60px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+a{
+    margin-bottom: 10px;
+}
+.sidebar {
+    height: 90vh;
+  }
+  .sidebar .nav-link {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .sidebar .nav-link.active {
+    color: #2470dc;
+  }
+  
+  .navbar .navbar-toggler {
+    top: .25rem;
+    right: 1rem;
+  }
+  .vac-img{
+    height: 250px;
+    object-fit: cover;
+    object-position: 100% 70%;
+  }
+  /* @media (max-width: 767.98px) {
+    .sidebar {
+        top: 5rem;
+} 
+}*/
 
