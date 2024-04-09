@@ -37,11 +37,35 @@ a{
   .vac-img{
     height: 250px;
     object-fit: cover;
-    object-position: 100% 70%;
+    object-position: 100% 80%;
   }
+
+  .trip-details{
+    position:absolute;
+    height: 150px;
+    width: 80%;
+    background-color:white;
+    border-radius: 30px;
+    transform: translate(15%, 100%);
+    }
+    .sub-section{
+        width: 45vw;
+    }
   /* @media (max-width: 767.98px) {
     .sidebar {
         top: 5rem;
 } 
 }*/
 
+.form__field {
+    width: 100%;
+    border: 0;
+    /* text-align: center; */
+    /* border-bottom: 2px solid gray; */
+    outline: 0;
+    font-size: 1.7rem;
+    padding-left: 40px;
+    background: transparent;
+}
+    
+  
