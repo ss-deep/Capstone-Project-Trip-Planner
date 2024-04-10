@@ -1,9 +1,9 @@
  * {
     font-family: "open sans", "arial", sans-serif;} 
 
-body{
+/* body{
     position: relative;
-}
+} */
 header, .mybutton{
     background-color: #BD5D38 ;
 }
@@ -17,7 +17,9 @@ header{
     font-weight: 500;
     /* color:white; */
 }
-
+.main-content{
+    width: 100vw;
+}
 /* -------Navbar-------- */
 li{
     margin-bottom: 10px;
@@ -39,7 +41,7 @@ li{
 }
 
 .navbar .navbar-toggler {
-    top: .25rem;
+    /* top: .25rem; */
     right: 1rem;
 }
 
@@ -58,11 +60,10 @@ li{
     transform: translate(13%, 90%);
 }
 .sub-section{
-    width: 45vw;
-    background-color:rgb(233, 232, 232);
-
+    width: 100%;
+    background-color:rgb(255, 251, 251);
 }
-.form__field {
+.form_field {
     width: 100%;
     border: 0;
     font-weight: 600;
@@ -84,14 +85,13 @@ li{
 }
 #dashboard{
     height: 100vh;
-
 }
 /* -------Notes Section-------- */
 
 .paper {
     width: 80%;
     height: 70%;
-    background-color: #EAEBE1;
+    background-color: #fcf8dd;
     box-shadow: 15px 15px 33px rgba(27, 27, 27, 0.1);
 }
 textarea {
@@ -102,8 +102,26 @@ textarea {
     font-family: "Comic Sans";
     font-size: 1.5rem;
     line-height: 1;
-    padding-left: 1rem;
     margin: 0;
-    /* resize: none; */
     outline: 0;
+    padding:1rem;
 }
+
+
+/* -------API/Map Section-------- */
+.search{
+    height: 40px;
+    margin: 10px;
+}
+
+.search-input{
+    padding: 0 10px;
+    width: 28vw;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    outline: 0;
+    line-height: 40px;
+
+}
+
+/* -------Itinerary Section-------- */
