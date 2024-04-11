@@ -1,9 +1,6 @@
  * {
     font-family: "open sans", "arial", sans-serif;} 
 
-/* body{
-    position: relative;
-} */
 header, .mybutton{
     background-color: #BD5D38 ;
 }
@@ -21,30 +18,23 @@ header{
     width: 100vw;
 }
 /* -------Navbar-------- */
-li{
-    margin-bottom: 10px;
+.navbar-list li{
+    margin-bottom: 20px;
+}
+.list-group,li {
+    border-radius: 20px !important;
 }
 .sidebar {
-    /* height: 100vh; */
-    /* position:relative; */
-    /* overflow-y: scroll; */
     background-color: #BD5D38;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.sidebar .nav-link {
+.sidebar{
     font-weight: 700;
     font-size: 1.2rem;
     color: #E2B9AC;
 }
-
-.sidebar .nav-link.active {
-    color: #fcf2ee;
-}
-
-.navbar .navbar-toggler {
-    /* top: .25rem; */
-    right: 1rem;
-}
-
 /* -------Main Sub Section-------- */
 .vac-img{
     height: 230px;
@@ -61,7 +51,7 @@ li{
 }
 .sub-section{
     width: 100%;
-    background-color:rgb(255, 251, 251);
+    background-color:#FFFFFF;
 }
 .form_field {
     width: 100%;
@@ -78,10 +68,6 @@ li{
 }
 .dash-container{
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
 }
 #dashboard{
     height: 100vh;
@@ -93,6 +79,7 @@ li{
     height: 70%;
     background-color: #fcf8dd;
     box-shadow: 15px 15px 33px rgba(27, 27, 27, 0.1);
+    margin: auto;
 }
 textarea {
     width: 100%;
@@ -106,7 +93,21 @@ textarea {
     outline: 0;
     padding:1rem;
 }
-
+/* -------Itinerary Section-------- */
+#list-itinerary li{
+    background-color: #efefef;
+    margin: 10px;
+}
+.dnd-card {
+    align-items: center;
+    border-radius: 4px;
+    border: 1.5px dashed #dee4ea;
+    color: #9ea4af;
+    display: flex;
+    justify-content: center;
+    min-height: 64px;
+    min-width: 375px;
+}
 
 /* -------API/Map Section-------- */
 .search{

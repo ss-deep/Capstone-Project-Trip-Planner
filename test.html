@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        #div1, #div2 {
+          float: left;
+          width: 100px;
+          height: 35px;
+          margin: 10px;
+          padding: 10px;
+          border: 1px solid black;
+        }
+        </style>
+        <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+        </script>
+</head>
+<body>
+
+<h2>Drag and Drop</h2>
+<p>Drag the image back and forth between the two div elements.</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="img_w3slogo.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div class="row" >
+    <div class="col-4" >
+        <div class="list-group " id="list-tab" role="tablist" style="height: 80vh;">
+            <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" >Home</a>
+            <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" >Profile</a>
+            <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" >Messages</a>
+            <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" >Settings</a>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="tab-content" id="nav-tabContent" style="height: 80vh;">
+            <div class="tab-pane fade show active" id="list-home" role="tabpanel" >Some placeholder content in a paragraph relating to "Home". And some more content, used here just to pad out and fill this tab panel. In production, you would obviously have more real content here. And not just text. It could be anything, really. Text, images, forms.</div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" >Some placeholder content in a paragraph relating to "Home". And some more content, used here just to pad out and fill this tab panel. In production, you would obviously have more real content here. And not just text. It could be anything, really. Text, images, forms.</div>
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" >Some placeholder content in a paragraph relating to "Home". And some more content, used here just to pad out and fill this tab panel. In production, you would obviously have more real content here. And not just text. It could be anything, really. Text, images, forms.</div>
+        </div>
+    </div>
+</div>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container-fluid g-0">
+
+        <main class="d-flex flex-nowrap"> 
+            <!-- Navbar -->
+            <nav class="navbar col-md-3 col-lg-2 d-md-block sidebar collapse border-end" id="sideNav">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+                <div class="position-fixed ps-4">
+                    <ul class="nav flex-column ">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dashboard">Dashboard</a></li>
+                        <li class="nav-item "><a class="nav-link js-scroll-trigger" href="#itinerary">Itinerary</a>
+                            <div class="sub-item-list dates">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 1</span></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 2</span></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 3</span></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notes">Notes</a></li>
+                        <li class="nav-item "><a class="nav-link js-scroll-trigger" href="#budget">Budget</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End of Navbar -->
+
+            <!-- Main Sub Section-->
+            <section class="main-content d-flex">
+                <!--Info Section-->
+                <div class="sub-section border-end">
+                    <!-- Dashboard-->
+                    <div class="tab-content" id="dashboard">
+                        <div class="bg-light border-end position-relative ">
+                            <div class="row g-0">
+                                <img class="vac-img" src="/images/vacation.jpg" alt="vacation-image">
+                                <div class="trip-details-box shadow-lg p-3">
+                                    <input type="input" class="form_field" placeholder="Trip Name" name="name" id='name'/>
+                                    <div class="dates mt-2">Apr 1 - Apr 8</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-5" />
+
+                    <!-- Itinerary-->
+                    <div class="dash-container tab-content" id="itinerary">
+                        
+                </div>
+                    <hr class="mx-5" />
+
+                    <!-- Notes-->
+                    <div class="dash-container tab-content" id="notes">
+                        <div class="paper"><textarea placeholder="Write your notes here..."></textarea></div>
+                    </div>
+                    <hr class="mx-5" />
+
+                    <!-- Budget-->
+                    <div class="dash-container tab-content" id="budget">Budget</div>
+                    <hr class="mx-5" />
+                <!-- End of Info Section-->
+                </div>
+
+                <!-- API/Map Section-->
+                <div class="d-flex justify-content-center sub-section">
+                    <div class="position-fixed">
+                        <div class="search">
+                            <input type="text" class="search-input" placeholder="Search..." name="">
+                        </div>
+                    </div>
+                </div>
+                <!-- End of API/Map Section-->
+            </section>
+            <!-- End of Main Sub Section -->
+        </main> 
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+<script src="intro.js"></script>
+</body>
+
+</html>-->

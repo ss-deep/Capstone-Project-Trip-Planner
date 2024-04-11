@@ -26,3 +26,15 @@
 //     });
 
 // });
+
+const pendingTasks = document.getElementById('pending-tasks');
+const completedTasks = document.getElementById('completed-tasks');
+// alert('Hi')
+Sortable.create(pendingTasks, {
+  animation: 150,
+  group: 'taskList'
+});
+Sortable.create(completedTasks, {
+  animation: 150,
+  group: 'taskList'
+});

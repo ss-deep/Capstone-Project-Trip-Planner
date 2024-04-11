@@ -14,22 +14,22 @@
 
         <main class="d-flex flex-nowrap"> 
             <!-- Navbar -->
-            <nav class="navbar col-md-3 col-lg-2 d-md-block sidebar collapse border-end" id="sideNav">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
-                <div class="position-fixed ps-4">
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#dashboard">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#itinerary">Itinerary</a>
-                            <div class="sub-item-list dates">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 1</span></a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 2</span></a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link"><span class="menu-title">Day 3</span></a></li>
+            <nav class=" col-md-3 col-lg-2 d-md-block sidebar collapse" id="">
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button> -->
+                <div class="navbar-list p-2 mt-5 " >
+                    <ul class="list-group " id="list-tab" role="tablist">
+                        <li class="list-group-item list-group-item-dark list-group-item-action active" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard">Dashboard</li>
+                        <li class="list-group-item list-group-item-dark list-group-item-action " id="list-itinerary-list" data-bs-toggle="list" role="tab" href="#list-itinerary">Itinerary
+                            <!-- <div class="sub-item-list dates">
+                                <ul class="list-group" id="list-tab" role="tablist">
+                                    <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 1</li>
+                                    <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 2</li>
+                                    <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 3</li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notes">Notes</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#budget">Budget</a></li>
+                        <li class=" list-group-item list-group-item-dark list-group-item-action" id="list-notes-list" data-bs-toggle="list" role="tab" href="#list-notes">Notes</li>
+                        <li class=" list-group-item list-group-item-dark list-group-item-action" id="list-budget-list" data-bs-toggle="list" role="tab" href="#list-budget">Budget</li>
                     </ul>
                 </div>
             </nav>
@@ -38,9 +38,9 @@
             <!-- Main Sub Section-->
             <section class="main-content d-flex">
                 <!--Info Section-->
-                <div class="sub-section border-end">
+                <div class="sub-section border-end tab-content overflow-auto" id="">
                     <!-- Dashboard-->
-                    <div class="" id="dashboard">
+                    <div class="dash-container tab-pane fade show active" id="list-dashboard" role="tabpanel">
                         <div class="bg-light border-end position-relative ">
                             <div class="row g-0">
                                 <img class="vac-img" src="/images/vacation.jpg" alt="vacation-image">
@@ -51,30 +51,90 @@
                             </div>
                         </div>
                     </div>
-                    <hr class="mx-5" />
+                    <!-- <hr class="mx-5" /> -->
 
                     <!-- Itinerary-->
-                    <div class="dash-container" id="itinerary">
-                        
-                </div>
-                    <hr class="mx-5" />
+                    <div class="dash-container tab-pane fade " id="list-itinerary" role="tabpanel">
+
+                        <div class="row ps-2">
+                            <div class="row mb-md-0 mb-4 p-3">
+                              <h5>Pending Tasks</h5>
+                              <ul class="list-group list-group-flush" id="pending-tasks">
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>Buy products.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>Reply to emails.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>Write blog post.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>Update packages.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>New blog layout.</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="row mb-md-0 mb-4 p-3">
+                              <h5>Completed Tasks</h5>
+                              <ul class="list-group list-group-flush" id="completed-tasks">
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>New icons set for an iOS app.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span> Fix validation bugs and commit.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span> Help Web developers with HTML integration.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>Buy antivirus.</span>
+                                </li>
+                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                  <span>Answer support tickets.</span>
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="row mb-md-0 mb-4 p-3">
+                                <h5>Pending Tasks</h5>
+                                <ul class="list-group list-group-flush" id="pending-tasks">
+                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                    <span>Buy products.</span>
+                                  </li>
+                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                    <span>Reply to emails.</span>
+                                  </li>
+                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                    <span>Write blog post.</span>
+                                  </li>
+                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                    <span>Update packages.</span>
+                                  </li>
+                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
+                                    <span>New blog layout.</span>
+                                  </li>
+                                </ul>
+                              </div>
+                          </div>
+
+                    </div>
 
                     <!-- Notes-->
-                    <div class="dash-container" id="notes">
-                        <div class="paper"><textarea placeholder="Write your notes here..."></textarea></div>
+                    <div class="dash-container tab-pane fade" id="list-notes" role="tabpanel" >
+                        <div class="paper mt-5"><textarea class="" placeholder="Write your notes here..."></textarea></div>
                     </div>
-                    <hr class="mx-5" />
-
                     <!-- Budget-->
-                    <div class="dash-container" id="budget">Budget</div>
-                    <hr class="mx-5" />
+                    <div class="dash-container tab-pane fade" id="list-budget" role="tabpanel" >Budget</div>
                 <!-- End of Info Section-->
                 </div>
-
                 <!-- API/Map Section-->
-                <div class="d-flex justify-content-center sub-section">
-                    <div class="search">
-                        <input type="text" class="search-input" placeholder="Search..." name="">
+                <div class="d-flex justify-content-center sub-section mt-5">
+                    <div class="position-fixed">
+                        <div class="search">
+                            <input type="text" class="search-input" placeholder="Search..." name="">
+                        </div>
                     </div>
                 </div>
                 <!-- End of API/Map Section-->
@@ -82,6 +142,9 @@
             <!-- End of Main Sub Section -->
         </main> 
     </div>
+
+
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="index.js"></script>
 <script src="intro.js"></script>
