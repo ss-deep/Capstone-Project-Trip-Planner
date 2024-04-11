@@ -14,12 +14,12 @@
 
         <main class="d-flex flex-nowrap"> 
             <!-- Navbar -->
-            <nav class=" col-md-3 col-lg-2 d-md-block sidebar collapse" id="">
+            <nav class=" col-md-3 col-lg-2 d-md-block sidebar collapse " id="">
                 <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button> -->
                 <div class="navbar-list p-2 mt-5 " >
-                    <ul class="list-group " id="list-tab" role="tablist">
-                        <li class="list-group-item list-group-item-dark list-group-item-action active" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard">Dashboard</li>
-                        <li class="list-group-item list-group-item-dark list-group-item-action " id="list-itinerary-list" data-bs-toggle="list" role="tab" href="#list-itinerary">Itinerary
+                    <ul class="list-group mt-5" id="list-tab" role="tablist">
+                        <li class="list-group-item  list-group-item-action active" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard">Dashboard</li>
+                        <li class="list-group-item  list-group-item-action " id="list-itinerary-list" data-bs-toggle="list" role="tab" href="#list-itinerary">Itinerary
                             <!-- <div class="sub-item-list dates">
                                 <ul class="list-group" id="list-tab" role="tablist">
                                     <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 1</li>
@@ -28,8 +28,8 @@
                                 </ul>
                             </div> -->
                         </li>
-                        <li class=" list-group-item list-group-item-dark list-group-item-action" id="list-notes-list" data-bs-toggle="list" role="tab" href="#list-notes">Notes</li>
-                        <li class=" list-group-item list-group-item-dark list-group-item-action" id="list-budget-list" data-bs-toggle="list" role="tab" href="#list-budget">Budget</li>
+                        <li class=" list-group-item  list-group-item-action" id="list-notes-list" data-bs-toggle="list" role="tab" href="#list-notes">Notes</li>
+                        <li class=" list-group-item  list-group-item-action" id="list-budget-list" data-bs-toggle="list" role="tab" href="#list-budget">Budget</li>
                     </ul>
                 </div>
             </nav>
@@ -50,34 +50,50 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="days row mb-md-0 mb-4 p-3 mt-5" id="trip-summary">
+                            <h4>Trip Summary</h4>
+                            <h5>Day 1</h5>
+                            <ul class="list-group list-group-flush" id="">
+                              <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center ">
+                                <span>New icons set for an iOS app.</span>
+                              </li>
+                              <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center ">
+                                <span> Fix validation bugs and commit.</span>
+                              </li>
+                              <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center ">
+                                <span> Help Web developers with HTML integration.</span>
+                              </li>
+                            </ul>
+                        </div>
                     </div>
-                    <!-- <hr class="mx-5" /> -->
+                  <!-- <hr class="mx-5" /> -->
 
                     <!-- Itinerary-->
                     <div class="dash-container tab-pane fade " id="list-itinerary" role="tabpanel">
+                        
+                        <div class="row mb-md-0 mb-4 p-5">
+                            <h5>Day</h5>
 
-                        <div class="row ps-2">
-                            <div class="row mb-md-0 mb-4 p-3">
-                              <h5>Pending Tasks</h5>
-                              <ul class="list-group list-group-flush" id="pending-tasks">
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>Buy products.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>Reply to emails.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>Write blog post.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>Update packages.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>New blog layout.</span>
-                                </li>
-                              </ul>
+                            <div class="selected-activities-list overflow-wrapper mt-3">
+                                <div class="day-section">
+                                    <div><i class="p-1"></i>
+                                        <span class="orange-text uppercase f-s-10 day">Morning</span>
+                                            <div><div class="dnd-card">
+                                            <span>Drag &amp; Drop to add activities</span></div></div></div>
+                                    <div><i class=""></i>
+                                        <span class="orange-text uppercase f-s-10 day">Afternoon</span>
+                                            <div><div class="dnd-card">
+                                            <span>Drag &amp; Drop to add activities</span></div></div></div>
+                                    <div><i class=""></i>
+                                        <span class="orange-text uppercase f-s-10 day">Evening</span>
+                                            <div><div class="dnd-card">
+                                                <span>Drag &amp; Drop to add activities</span></div></div></div>
+                                    <div><i class=""></i>
+                                        <span class="orange-text uppercase f-s-10 day">Night</span>
+                                            <div><div class="dnd-card"><span>Drag &amp; Drop to add activities</span></div></div></div></div><div></div></div>
                             </div>
-                            <div class="row mb-md-0 mb-4 p-3">
+    
+                        <div class="row mb-md-0 ">
                               <h5>Completed Tasks</h5>
                               <ul class="list-group list-group-flush" id="completed-tasks">
                                 <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
@@ -96,8 +112,8 @@
                                   <span>Answer support tickets.</span>
                                 </li>
                               </ul>
-                            </div>
-                            <div class="row mb-md-0 mb-4 p-3">
+                        </div>
+                        <div class="row mb-md-0 mb-4 p-3">
                                 <h5>Pending Tasks</h5>
                                 <ul class="list-group list-group-flush" id="pending-tasks">
                                   <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
@@ -116,9 +132,7 @@
                                     <span>New blog layout.</span>
                                   </li>
                                 </ul>
-                              </div>
-                          </div>
-
+                        </div>
                     </div>
 
                     <!-- Notes-->
@@ -130,7 +144,7 @@
                 <!-- End of Info Section-->
                 </div>
                 <!-- API/Map Section-->
-                <div class="d-flex justify-content-center sub-section mt-5">
+                <div class="d-flex justify-content-center sub-section ">
                     <div class="position-fixed">
                         <div class="search">
                             <input type="text" class="search-input" placeholder="Search..." name="">

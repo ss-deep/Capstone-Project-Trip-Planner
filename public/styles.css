@@ -20,12 +20,19 @@ header{
 /* -------Navbar-------- */
 .navbar-list li{
     margin-bottom: 20px;
+    background-color: transparent;
+    border: 0;
+    color: black;
 }
-.list-group,li {
+.navbar-list li.active {
+    background-color: black;
+    color: white;
+}
+#list-tab li{
     border-radius: 20px !important;
 }
 .sidebar {
-    background-color: #BD5D38;
+    background-color: #DD6E42;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,25 +40,25 @@ header{
 .sidebar{
     font-weight: 700;
     font-size: 1.2rem;
-    color: #E2B9AC;
+    /* color: #E2B9AC; */
 }
 /* -------Main Sub Section-------- */
 .vac-img{
-    height: 230px;
+    height: 200px;
     object-fit: cover;
     object-position: 100% 80%;
 }
 .trip-details-box{
     position:absolute;
-    height: 150px;
+    height: 110px;
     width: 80%;
     background-color:white;
     border-radius: 30px;
-    transform: translate(13%, 90%);
+    transform: translate(13%, 110%);
 }
 .sub-section{
     width: 100%;
-    background-color:#FFFFFF;
+    background-color:#EAEAEA;
 }
 .form_field {
     width: 100%;
@@ -72,6 +79,11 @@ header{
 #dashboard{
     height: 100vh;
 }
+.summary-list{
+    margin: 10px 20px;
+    border-radius: 8px;
+}
+s
 /* -------Notes Section-------- */
 
 .paper {
@@ -94,25 +106,53 @@ textarea {
     padding:1rem;
 }
 /* -------Itinerary Section-------- */
-#list-itinerary li{
-    background-color: #efefef;
+#list-itinerary li, #trip-summary li{
+    background-color: #ffffff;
     margin: 10px;
 }
+.orange-text {
+    color: #ffa280
+}
+.uppercase {
+    text-transform: uppercase
+}
+ .day-section {
+    padding-left: 46px;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.selected-activities-list{
+    overflow: auto;
+    padding-left: 45px;
+    padding-right: 55px;
+    /* padding-bottom: 40px; */
+    
+}
+
 .dnd-card {
+    margin: 5px 0px;
     align-items: center;
-    border-radius: 4px;
-    border: 1.5px dashed #dee4ea;
+    /* border-radius: 4px; */
+    border: 1.5px dashed #d3d3d3;
     color: #9ea4af;
     display: flex;
     justify-content: center;
+    /* align-items: center; */
     min-height: 64px;
     min-width: 375px;
+    background-color: white;
+    border-radius: 10px;
+/* min-height: 64px; */
+
+    /* width: 100%; */
+
 }
 
 /* -------API/Map Section-------- */
 .search{
     height: 40px;
-    margin: 10px;
+    padding-top: 30px;
 }
 
 .search-input{
@@ -126,3 +166,45 @@ textarea {
 }
 
 /* -------Itinerary Section-------- */
+/* -webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-text-size-adjust: 100%;
+font-size: 14px;
+line-height: 1.5;
+color: rgba(0,0,0,.65);
+font-family: CircularStd;
+box-sizing: border-box;
+background-color: #f9f9f9;
+padding-left: 45px;
+padding-right: 55px;
+padding-bottom: 40px;
+overflow: auto;
+
+day section 
+
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-text-size-adjust: 100%;
+font-size: 14px;
+line-height: 1.5;
+color: rgba(0,0,0,.65);
+font-family: CircularStd;
+box-sizing: border-box;
+padding-left: 46px;
+position: relative;
+
+.dnd-card
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-text-size-adjust: 100%;
+font-size: 14px;
+line-height: 1.5;
+font-family: CircularStd;
+box-sizing: border-box;
+align-items: center;
+border-radius: 4px;
+border: 1.5px dashed #dee4ea;
+color: #9ea4af;
+display: flex;
+justify-content: center;
+min-height: 64px;
+width: 100%;
+min-width: 310px;
+max-width: 320px; */
