@@ -1,32 +1,16 @@
 
+//get trip name and dates from the modal
+const datesRange = document.getElementById("dates").value
+const submitDates = document.getElementById("submit-dates")
+submitDates.addEventListener('click',()=>alert(datesRange))
+console.log(typeof datesRange);
 
 
-// window.addEventListener('DOMContentLoaded', event => {
 
-//     // Activate Bootstrap scrollspy on the main nav element
-//     const sideNav = document.body.querySelector('#sideNav');
-//     if (sideNav) {
-//         new c(document.body, {
-//             target: '#sideNav',
-//             rootMargin: '0px 0px -40%',
-//         });
-//     };
 
-//     // Collapse responsive navbar when toggler is visible
-//     const navbarToggler = document.body.querySelector('.navbar-toggler');
-//     const responsiveNavItems = [].slice.call(
-//         document.querySelectorAll('#navbarResponsive .nav-link')
-//     );
-//     responsiveNavItems.map(function (responsiveNavItem) {
-//         responsiveNavItem.addEventListener('click', () => {
-//             if (window.getComputedStyle(navbarToggler).display !== 'none') {
-//                 navbarToggler.click();
-//             }
-//         });
-//     });
 
-// });
 
+//Implements drag and drop functionality for lists
 const pendingTasks = document.getElementById('pending-tasks');
 const completedTasks = document.getElementById('completed-tasks');
 // alert('Hi')
@@ -38,3 +22,4 @@ Sortable.create(completedTasks, {
   animation: 150,
   group: 'taskList'
 });
+
