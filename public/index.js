@@ -1,9 +1,11 @@
 
-//get trip name and dates from the modal
-const datesRange = document.getElementById("dates").value
+//get trip name and dates from the modal which is in intro.html
+const formData = document.querySelectorAll('input')
 const submitDates = document.getElementById("submit-dates")
-submitDates.addEventListener('click',()=>alert(datesRange))
-console.log(typeof datesRange);
+submitDates.addEventListener('click', () => {
+    // formData.forEach(ele => console.log(ele.value))
+    window.location.href="index.html"
+})
 
 
 
