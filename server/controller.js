@@ -5,7 +5,7 @@ const axios = require('axios')
 module.exports = {
     getAttractions: async (req, res) => {
         try {
-            const data = req.body
+            // const data = req.body
             // console.log(req.body.properties.place_id)
             // res.status(200).send(`sending hi from controller ${data}`)
             //call places api

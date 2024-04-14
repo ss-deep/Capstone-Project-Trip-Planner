@@ -10,20 +10,19 @@ const baseURL = `http://localhost:9801`
 //Displays conten on trip details box
 document.getElementById('trip-name').value = tripName
 document.getElementById('selected-dates-range').innerHTML = startDate
-// console.log('----->',tripName);
-// console.log('----->',startDate);
+const placesDiv=document.getElementById('places-to-visit')
 
 //Implements drag and drop functionality for lists
-const pendingTasks = document.getElementById('drag-drop');
-const completedTasks = document.getElementById('attraction-drag-drop');
-Sortable.create(pendingTasks, {
+const dragDrop = document.getElementById('drag-drop');
+// const completedTasks = document.getElementById('attraction-drag-drop');
+Sortable.create(dragDrop, {
   animation: 150,
   group: 'taskList'
 });
-Sortable.create(completedTasks, {
-  animation: 150,
-  group: 'taskList'
-});
+// Sortable.create(completedTasks, {
+//   animation: 150,
+//   group: 'taskList'
+// });
 
 //---------------------Autocomplete Api section----------------------
 
@@ -253,13 +252,36 @@ addressAutocomplete(document.getElementById("autocomplete-container-city"), (dat
     type: "city"
 });
   
-// -------------------------------
+// ------------------Get attractions list and display it-------------
 
 function getDataList(city) {
-      // console.log(city);
-
   axios.post(`${baseURL}/attractions`,city)
-        .then((res) => {
-        console.log("reeeeeessspone",res.data);
+    .then((res) => {
+          let attractionsList = res.data.features
+      // console.log("reeeeeessspone",attractionsList['features'][0]['properties']['name']);
+      attractionsList.forEach(place => {
+        let placeHtml = createCard(place)
+        placesDiv.innerHTML += placeHtml
+      
+      })
+          
     })
-  }
+}
+function displyaDataCards() {
+    
+}
+
+function createCard(attraction) {
+  return `
+  <div class="source-card" draggable="true">
+    <div class="main-information">
+      <h5 class="f-s-18 m-b-8">${attraction['properties']['name']}</h5>
+      <div class="row orange-text m-b-2 ">
+      <span class="hours">Opening Hrs : ${attraction['properties']['opening_hours']}</span></div>
+      <div class="description gray mt-2" title="">                                
+        <p>Website : ${attraction['properties']['website']}</p>
+        <p>Address : ${attraction['properties']['formatted']}</p>
+      </div>
+  </div>
+</div>`
+}
