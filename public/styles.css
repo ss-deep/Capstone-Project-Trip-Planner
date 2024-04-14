@@ -37,8 +37,8 @@ header{
     background-color: black;
     color: white;
 }
-#list-tab li{
-    border-radius: 20px !important;
+ li{
+    border-radius: 15px !important;
 }
 .sidebar {
     background-color: #DD6E41;
@@ -119,43 +119,32 @@ textarea {
     background-color: #ffffff;
     margin: 10px;
 }
-.orange-text {
+/* .orange-text {
     color: #ffa280
 }
 .uppercase {
     text-transform: uppercase
-}
+} */
  .day-section {
-    padding-left: 46px;
     position: relative;
     font-size: 14px;
     line-height: 1.5;
 }
 .selected-activities-list{
     overflow: auto;
-    padding-left: 45px;
-    padding-right: 55px;
-    /* padding-bottom: 40px; */
-    
 }
 
 .dnd-card {
-    margin: 5px 0px;
+    /* margin: 5px 0px; */
     align-items: center;
-    /* border-radius: 4px; */
-    border: 1.5px dashed #d3d3d3;
+    border: 1.5px dashed #d3d3d3 !important;
     color: #9ea4af;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     min-height: 64px;
-    min-width: 375px;
+    min-width: 260px;
     background-color: white;
     border-radius: 10px;
-/* min-height: 64px; */
-
-    /* width: 100%; */
-
 }
 
 /* -------API/Map Section-------- */

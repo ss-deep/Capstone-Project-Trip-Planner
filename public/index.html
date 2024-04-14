@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="days row mb-md-0 mb-4 p-3 mt-5" id="trip-summary">
+                        <div class="days row mb-md-0 mb-4 p-3 mt-5 g-0" id="trip-summary">
                             <h4>Trip Summary</h4>
                             <h5>Day 1</h5>
                             <ul class="list-group list-group-flush" id="" data-mdb-sortable="sortable">
@@ -71,30 +71,28 @@
 
                     <!-- Itinerary-->
                     <div class="dash-container tab-pane fade " id="list-itinerary" role="tabpanel">
-                        
-                        <div class="row mb-md-0 mb-4 p-5">
-                            <h5>Day</h5>
-                            <div class="selected-activities-list overflow-wrapper mt-3">
-                                <div class="day-section">
-                                    <div><i class="p-1"></i>
-                                        <span class="orange-text uppercase f-s-10 day">Morning</span>
-                                            <div>
-                                            <div class="dnd-card">
-                                            <span>Drag &amp; Drop to add activities</span></div></div></div>
-                                    <div><i class=""></i>
-                                        <span class="orange-text uppercase f-s-10 day">Afternoon</span>
-                                            <div><div class="dnd-card">
-                                            <span>Drag &amp; Drop to add activities</span></div></div></div>
-                                    <div><i class=""></i>
-                                        <span class="orange-text uppercase f-s-10 day">Evening</span>
-                                            <div><div class="dnd-card">
-                                                <span>Drag &amp; Drop to add activities</span></div></div></div>
-                                    <div><i class=""></i>
-                                        <span class="orange-text uppercase f-s-10 day">Night</span>
-                                            <div><div class="dnd-card">
-                                                <span>Drag &amp; Drop to add activities</span></div></div></div></div></div>
+                        <div class="row mb-md-0 mb-4 g-0">
+                          <div class="selected-activities-list overflow-wrapper mt-3">
+                            <div class="day-section px-5">
+                                <h5>Day</h5>
+                                <ul class="list-group list-group-flush" id="drag-drop" data-mdb-sortable="sortable">
+                                  <li class="dnd-card list-group-item drag-item cursor-move ">
+                                    <span>Drag &amp; Drop to add activities 1</span>
+                                  </li>
+                                  <li class="dnd-card list-group-item drag-item cursor-move ">
+                                    <span>Drag &amp; Drop to add activities 2</span>
+                                  </li>
+                                  <li class="dnd-card list-group-item drag-item cursor-move ">
+                                    <span>Drag &amp; Drop to add activities 3</span>
+                                  </li>
+                                  <li class="dnd-card list-group-item drag-item cursor-move ">
+                                    <span>Drag &amp; Drop to add activities 4</span>
+                                  </li>
+                                </ul>
+                            </div>
+                          </div>
                         </div>
-                        <div class="row mb-md-0 ">
+                        <!-- <div class="row mb-md-0 p-3">
                               <h5>Completed Tasks</h5>
                               <ul class="list-group list-group-flush" id="completed-tasks" data-mdb-sortable="sortable">
                                 <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
@@ -133,7 +131,7 @@
                                     <span>New blog layout.</span>
                                   </li>
                                 </ul>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Notes-->
@@ -147,20 +145,32 @@
                 </div>
                 
                 <!-- API/Map Section-->
-                <!-- <div class="sub-section d-flex justify-content-center  "> -->
-                    <!-- <div class="position-fixed"> -->
-                        <!-- <div class="search"> -->
-                <div class="sub-section ">
-                    <div class="autocomplete-container" id="autocomplete-container"></div>
-                    <!-- <div class="autocomplete-container" id="autocomplete-container-country"></div> -->
-                    <div class="autocomplete-container" id="autocomplete-container-city"></div>   
-                    <!-- <hr class="mx-5" /> -->                         
-                </div> 
-                            
-                          <!-- <input type="text" class="autocomplete_search" id="autocomplete_search" placeholder="Search..." name=""> -->
-                        <!-- </div> -->
-                    <!-- </div> -->
-                <!-- </div> -->
+                <div class="sub-section dash-container">
+                  <div class="autocomplete-container" id="autocomplete-container"></div>
+                  <div class="autocomplete-container" id="autocomplete-container-city"></div>   
+                  <!-- <hr class="mx-5" /> -->    
+
+                  <div class="row mb-md-0 mb-4 g-0">
+                    <div class="selected-activities-list overflow-wrapper mt-3">
+                      <div class="day-section px-5">
+                          <ul class="list-group list-group-flush" id="attraction-drag-drop" data-mdb-sortable="sortable">
+                            <li class="dnd-card list-group-item drag-item cursor-move " hidden >
+                              <span>Drag &amp; Drop to add activities 1</span>
+                            </li>
+                            <li class="dnd-card list-group-item drag-item cursor-move " hidden>
+                              <span>Drag &amp; Drop to add activities 2</span>
+                            </li>
+                            <li class="dnd-card list-group-item drag-item cursor-move ">
+                              <span>Drag &amp; Drop to add activities 3</span>
+                            </li>
+                            <li class="dnd-card list-group-item drag-item cursor-move ">
+                              <span>Drag &amp; Drop to add activities 4</span>
+                            </li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div> 
+                </div>        
                 <!-- End of API/Map Section-->
             </section>
             <!-- End of Main Sub Section -->

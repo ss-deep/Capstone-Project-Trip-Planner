@@ -14,8 +14,8 @@ document.getElementById('selected-dates-range').innerHTML = startDate
 // console.log('----->',startDate);
 
 //Implements drag and drop functionality for lists
-const pendingTasks = document.getElementById('pending-tasks');
-const completedTasks = document.getElementById('completed-tasks');
+const pendingTasks = document.getElementById('drag-drop');
+const completedTasks = document.getElementById('attraction-drag-drop');
 Sortable.create(pendingTasks, {
   animation: 150,
   group: 'taskList'
@@ -260,6 +260,6 @@ function getDataList(city) {
 
   axios.post(`${baseURL}/attractions`,city)
         .then((res) => {
-        // console.log("reeeeeessspone",res.data);
+        console.log("reeeeeessspone",res.data);
     })
   }
