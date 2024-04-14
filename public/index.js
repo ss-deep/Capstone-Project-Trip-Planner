@@ -1,14 +1,17 @@
-// const { tripDetails } = require('./intro.js');
-// import { inputValues } from './intro.js';
 
+// const { default: axios } = require('axios')
 const urlParams = new URLSearchParams(window.location.search);
 const tripName = urlParams.get('trip-name');
 const startDate = urlParams.get('dates-range');
+let cityData;
 
+const baseURL = `http://localhost:9801`
+
+//Displays conten on trip details box
 document.getElementById('trip-name').value = tripName
 document.getElementById('selected-dates-range').innerHTML = startDate
-console.log('----->',tripName);
-console.log('----->',startDate);
+// console.log('----->',tripName);
+// console.log('----->',startDate);
 
 //Implements drag and drop functionality for lists
 const pendingTasks = document.getElementById('pending-tasks');
@@ -22,7 +25,7 @@ Sortable.create(completedTasks, {
   group: 'taskList'
 });
 
-//---------------------Api section----------------------
+//---------------------Autocomplete Api section----------------------
 
 /* 
 	The addressAutocomplete takes as parameters:
@@ -123,7 +126,6 @@ function addressAutocomplete(containerElement, callback, options) {
         /* Set the value for the autocomplete text field and notify: */
         itemElement.addEventListener("click", function(e) {
           inputElement.value = currentItems[index].properties.formatted;
-
           callback(currentItems[index]);
 
           /* Close the list of autocompleted values: */
@@ -189,7 +191,8 @@ function addressAutocomplete(containerElement, callback, options) {
     items[index].classList.add("autocomplete-active");
 
     // Change input value and notify
-    inputElement.value = currentItems[index].properties.formatted;
+      inputElement.value = currentItems[index].properties.formatted;
+
     callback(currentItems[index]);
   }
 
@@ -241,10 +244,22 @@ function addressAutocomplete(containerElement, callback, options) {
 // });
 addressAutocomplete(document.getElementById("autocomplete-container-city"), (data) => {
     console.log("Selected city: ");
-    console.log(data);
+    cityData = data
+    // console.log(cityData);
+    getDataList(cityData)
+    // console.log(data);
   }, {
     placeholder: "Enter a city name here",
     type: "city"
-  });
-
+});
   
+// -------------------------------
+
+function getDataList(city) {
+      console.log(city);
+
+  axios.post(`${baseURL}/attractions`,city)
+        .then((res) => {
+        console.log(res.data);
+    })
+  }
