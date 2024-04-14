@@ -256,10 +256,10 @@ addressAutocomplete(document.getElementById("autocomplete-container-city"), (dat
 // -------------------------------
 
 function getDataList(city) {
-      console.log(city);
+      // console.log(city);
 
   axios.post(`${baseURL}/attractions`,city)
         .then((res) => {
-        console.log(res.data);
+        // console.log("reeeeeessspone",res.data);
     })
   }
