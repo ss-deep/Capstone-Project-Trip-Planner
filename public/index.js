@@ -13,13 +13,13 @@ document.getElementById('selected-dates-range').innerHTML = startDate
 const placesDiv=document.getElementById('places-to-visit')
 
 //Implements drag and drop functionality for lists
-const dragDrop = document.getElementById('drag-drop');
+// const dragDrop = document.getElementById('drag-drop');
 // const completedTasks = document.getElementById('attraction-drag-drop');
-Sortable.create(dragDrop, {
-  animation: 150,
-  group: 'taskList'
-});
-// Sortable.create(completedTasks, {
+// Sortable.create(dragDrop, {
+//   animation: 150,
+//   group: 'taskList'
+// });
+// Sortable.clone(source-card, {
 //   animation: 150,
 //   group: 'taskList'
 // });
@@ -270,13 +270,14 @@ function getDataList(city) {
 function displyaDataCards() {
     
 }
-
+let idNum=1
 function createCard(attraction) {
+  
   return `
-  <div class="source-card" draggable="true">
+  <div class="source-card" id="sourceCard${idNum++}" draggable="true" ondragstart="handleDragStart(event)">
     <div class="main-information">
       <h5 class="f-s-18 m-b-8">${attraction['properties']['name']}</h5>
-      <div class="row orange-text m-b-2 ">
+      <div class=" orange-text m-b-2 ">
       <span class="hours">Opening Hrs : ${attraction['properties']['opening_hours']}</span></div>
       <div class="description gray mt-2" title="">                                
         <p>Website : ${attraction['properties']['website']}</p>
@@ -284,4 +285,48 @@ function createCard(attraction) {
       </div>
   </div>
 </div>`
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Select the draggable element
+  const draggableElement = document.querySelector('.source-card');
+  // Select the drop zone
+  const dropZone = document.getElementById('list-itinerary');
+      draggableElement.addEventListener('dragstart', handleDragStart);
+      dropZone.addEventListener('dragover', handleDragOver);
+      dropZone.addEventListener('drop', handleDrop);
+});
+
+function handleDragStart(event) {
+  // Clone the dragged element
+  const clone = event.target.cloneNode(true);
+  // Set draggable attribute to true for the cloned element
+  clone.setAttribute('draggable', true);
+  // Set the data transfer data (optional)
+  event.dataTransfer.setData('text/plain', event.target.id);
+}
+
+function handleDragOver(event) {
+  // Prevent default to allow drop
+  event.preventDefault();
+}
+
+function handleDrop(event) {
+  // Prevent default action (open as link for some elements)
+  event.preventDefault();
+  
+  // Get the dragged data
+  const data = event.dataTransfer.getData('text/plain');
+
+  // Check if the element with the ID exists
+  const draggedElement = document.getElementById(data);
+  if (draggedElement) {
+      // Clone the dragged element
+      const clone = draggedElement.cloneNode(true);
+      clone.setAttribute('draggable', false);
+      // Append the cloned element to the drop zone
+      event.target.appendChild(clone);
+  } else {
+      console.error('Element not found with ID:', data);
+  }
 }

@@ -70,12 +70,12 @@
                     <!-- <hr class="mx-5" /> -->
 
                     <!-- Itinerary-->
-                    <div class="dash-container tab-pane fade " id="list-itinerary" role="tabpanel">
-                        <div class="row mb-md-0 mb-4 g-0">
-                          <div class="selected-activities-list overflow-wrapper mt-3">
-                            <div class="day-section px-5">
-                                <h5>Day</h5>
-                                <ul class="list-group list-group-flush" id="drag-drop" data-mdb-sortable="sortable">
+                    <div class="dash-container tab-pane fade " id="list-itinerary" role="tabpanel" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" >
+                        <!-- <div class="row mb-md-0 mb-4 g-0"> -->
+                          <!-- <div class="selected-activities-list  overflow-wrapper mt-3" id="drop-zone" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" draggable="true"> -->
+                            <!-- <div class="source-card"> -->
+                                <!-- <h5>Day</h5>
+                                <ul class="list-group list-group-flush " id="drag-drop" data-mdb-sortable="sortable">
                                   <li class="dnd-card list-group-item drag-item cursor-move ">
                                     <span>Drag &amp; Drop to add activities 1</span>
                                   </li>
@@ -88,50 +88,10 @@
                                   <li class="dnd-card list-group-item drag-item cursor-move ">
                                     <span>Drag &amp; Drop to add activities 4</span>
                                   </li>
-                                </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- <div class="row mb-md-0 p-3">
-                              <h5>Completed Tasks</h5>
-                              <ul class="list-group list-group-flush" id="completed-tasks" data-mdb-sortable="sortable">
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>New icons set for an iOS app.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span> Fix validation bugs and commit.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span> Help Web developers with HTML integration.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>Buy antivirus.</span>
-                                </li>
-                                <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                  <span>Answer support tickets.</span>
-                                </li>
-                              </ul>
-                        </div>
-                        <div class="row mb-md-0 mb-4 p-3">
-                                <h5>Pending Tasks</h5>
-                                <ul class="list-group list-group-flush" id="pending-tasks" data-mdb-sortable="sortable">
-                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                    <span>Buy products.</span>
-                                  </li>
-                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                    <span>Reply to emails.</span>
-                                  </li>
-                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                    <span>Write blog post.</span>
-                                  </li>
-                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                    <span>Update packages.</span>
-                                  </li>
-                                  <li class="list-group-item drag-item cursor-move d-flex justify-content-between align-items-center">
-                                    <span>New blog layout.</span>
-                                  </li>
-                                </ul>
-                        </div> -->
+                                </ul> -->
+                            <!-- </div> -->
+                          <!-- </div> -->
+                        <!-- </div> -->
                     </div>
 
                     <!-- Notes-->
@@ -151,7 +111,7 @@
                   <!-- <hr class="mx-5" /> -->    
 
                   <div class="row mb-md-0 mb-4 g-0">
-                    <div class="selected-activities-list overflow-wrapper mt-3">
+                    <div class=" overflow-wrapper mt-3">
                       <div class="day-section px-3" id="places-to-visit">
                         <!-- <div class="source-card">
                           <div class="main-information">
@@ -170,22 +130,6 @@
                     </div>
                   </div>
 
-                      <!-- <div class="day-section px-5">
-                          <ul class="list-group list-group-flush" id="attraction-drag-drop" data-mdb-sortable="sortable">
-                            <li class="dnd-card list-group-item drag-item cursor-move " >
-                              <span>Drag &amp; Drop to add activities 1</span>
-                            </li>
-                            <li class="dnd-card list-group-item drag-item cursor-move ">
-                              <span>Drag &amp; Drop to add activities 2</span>
-                            </li>
-                            <li class="dnd-card list-group-item drag-item cursor-move ">
-                              <span>Drag &amp; Drop to add activities 3</span>
-                            </li>
-                            <li class="dnd-card list-group-item drag-item cursor-move ">
-                              <span>Drag &amp; Drop to add activities 4</span>
-                            </li>
-                          </ul>
-                      </div> -->
                     </div>
                   </div> 
                 </div>        
@@ -200,8 +144,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<script type="module" src="./index.js"></script>
-
+<script defer src="./index.js"></script>
 </body>
 
 </html>
