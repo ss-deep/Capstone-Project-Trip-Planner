@@ -287,15 +287,15 @@ function createCard(attraction) {
 </div>`
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Select the draggable element
-  const draggableElement = document.querySelector('.source-card');
-  // Select the drop zone
-  const dropZone = document.getElementById('list-itinerary');
-      draggableElement.addEventListener('dragstart', handleDragStart);
-      dropZone.addEventListener('dragover', handleDragOver);
-      dropZone.addEventListener('drop', handleDrop);
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Select the draggable element
+//   const draggableElement = document.querySelector('.source-card');
+//   // Select the drop zone
+//   const dropZone = document.getElementById('list-itinerary');
+//       draggableElement.addEventListener('dragstart', handleDragStart);
+//       dropZone.addEventListener('dragover', handleDragOver);
+//       dropZone.addEventListener('drop', handleDrop);
+// });
 
 function handleDragStart(event) {
   // Clone the dragged element
