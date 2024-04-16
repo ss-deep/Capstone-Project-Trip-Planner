@@ -9,7 +9,7 @@ const baseURL = `http://localhost:9801`
 
 //Displays conten on trip details box
 document.getElementById('trip-name').value = tripName
-document.getElementById('selected-dates-range').innerHTML = startDate
+document.querySelectorAll('.dates').innerHTML = startDate
 const placesDiv=document.getElementById('places-to-visit')
 
 //Implements drag and drop functionality for lists
@@ -59,9 +59,11 @@ function createCard(attraction) {
 }
 
 function getDataList(city) {
+  placesDiv.innerHTML=`<div class="loading spinner-border text-warning"></div>`
   axios.post(`${baseURL}/attractions`,city)
     .then((res) => {
-          let attractionsList = res.data.features
+      let attractionsList = res.data.features
+      placesDiv.innerHTML=""
       // console.log("reeeeeessspone",attractionsList['features'][0]['properties']['name']);
       attractionsList.forEach(place => {
         let placeHtml = createCard(place)  //returns string
@@ -79,10 +81,10 @@ function getDataList(city) {
     })
 }
 
-$('.draggable').draggable({ 
-  appendTo: 'body',
-  helper: 'clone'
-});
+// $('.draggable').draggable({ 
+//   appendTo: 'body',
+//   helper: 'clone'
+// });
 
 $('#day1').droppable({
   activeClass: 'activeCard',
@@ -118,12 +120,6 @@ $('#day2').droppable({
     $( this ).removeClass( "active" );
   }
 });
-
-
-
-
-
-
 
 
 
@@ -175,20 +171,6 @@ $('#day2').droppable({
 //       console.error('Element not found with ID:', data);
 //   }
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -422,11 +404,13 @@ function addressAutocomplete(containerElement, callback, options) {
 // });
 addressAutocomplete(document.getElementById("autocomplete-container-city"), (data) => {
   placesDiv.innerHTML=""
-
     console.log("Selected city: ");
     cityData = data
-    // console.log(cityData);
+  if (cityData) {
+    console.log("calling getDataList");
+
     getDataList(cityData)
+  }
     // console.log(data);
   }, {
     placeholder: "Enter a city name here",

@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="px-4 py-5 my-5 text-center">
+  <div class="container-fluid g-0">
+    <header class="navbar sticky-top">
+      <nav class="d-flex align-self-center justify-content-between">
+        <div class="">
+          <svg width="30" height="30">
+            <!-- <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /> -->
+          </svg>  
+          <a class="navbar-brand" href="#">Fixed navbar</a>
+        </div>
+        <form class="me-4">
+          <button class="btn btn-outline-light " type="button">Login</button>
+        </form>
+      </nav>
+    </header>
+    <main class="intro-main text-center ">
         <h1 class="display-5 fw-bold text-body-emphasis">You'll never travel without our planner</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">Plan your trips effortlessly! Create and map tailored itineraries with our planner, perfect for vacations and road trips.
@@ -18,7 +32,7 @@
             <button type="button" class="mybutton btn btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#plannerModal" id="planner">Start Planning</button>
           </div>
         </div>
-      </div>
+      </main>
       <div class="modal fade" id="plannerModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
@@ -45,7 +59,14 @@
             </div>
           </div>
         </div>
-      </div>      
+      </div>   
+      <div>
+        <img class="car" src="/images/car.png" alt="Moving car">
+      </div>
+      <footer class="footer py-4  sticky-bottom">
+        
+      </footer>      
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -70,7 +91,7 @@
       });
     
     });
-    </script>
+</script>
     
 <script type="module" src="./index.js"></script>
 <script type="module" src="./intro.js"></script>

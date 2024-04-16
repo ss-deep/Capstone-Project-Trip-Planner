@@ -1,10 +1,13 @@
-* {
-    font-family: "open sans", "arial", sans-serif;} 
-
-header, .mybutton{
+body {
+    /* border: 1px solid #fe0101 !important; */
+}
+header, footer, .mybutton{
     background-color: #ed6732 ;
     font-size: 1.2rem;
     color:white
+}
+nav{
+    width: 100vw;
 }
 .mybutton:hover{
     background-color: #e84707 ;
@@ -14,9 +17,9 @@ header, .mybutton{
     font-size: 1.2rem;
 }
 header{
-    height: 60px;
+    height: 55px;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     padding-left: 60px;
     font-size: 1.4rem;
@@ -41,7 +44,7 @@ header{
     border-radius: 15px !important;
 }
 .sidebar {
-    background-color: #f8703a;
+    /* background-color: #f8703a; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,21 +86,25 @@ header{
     font-weight: 500;
 }
 .dash-container{
-    height: 100vh;
+    height: 90vh;
 }
 #dashboard{
-    height: 100vh;
+    height: 90vh;
 }
 /* .summary-list{
     margin: 10px 20px;
     border-radius: 8px;
 } */
 .drag-drop{
-    border: 1px dashed #969696;
     min-height:20vh;
     height: auto;
     z-index: 0;
     border-radius: 10px; 
+
+    background-color: #fff;
+    box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.22);
+    border-width: 1px;
+    cursor: pointer;
 }
 .draggable{
 
@@ -116,24 +123,34 @@ header{
     font-size: 14px;
     line-height: 1.5;
 }
+.loading{
+    position: absolute;
+    right: 50%;
+    top: 200px;
+}
 .selected-activities-list{
     /* overflow: auto; */
     display: flex;
     flex-direction: column;
-    
+}
+.trip-weather{
+    height: 110px;
+    width: 100%;
+    background-color:white;
+    border-radius: 20px;
 }
 
 .dnd-card {
     /* margin: 5px 0px; */
     align-items: center;
-    border: 1.5px dashed #d3d3d3 !important;
+    /* border: 1.5px dashed #d3d3d3 !important; */
     color: #9ea4af;
     display: flex;
     justify-content: center;
     min-height: 64px;
     min-width: 260px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 40px;
     /* z-index: 1; */
 }
 .dnd-card.over{
@@ -142,11 +159,9 @@ header{
 .source-card {
     border-radius: 4px;
     background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-    border-style: solid;
+    box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.333);
+    /* border-style: solid; */
     border-width: 1px;
-    border-image-source: linear-gradient(180deg, #fafafa, hsla(0, 0%, 96%, 0));
-    border-image-slice: 1;
     /* min-width: 610px; */
     /* max-width: 620px; */
     height: auto;
@@ -174,15 +189,19 @@ header{
     cursor: pointer;
     margin-bottom: 10px;
     background-color: rgb(255, 255, 255);
-    padding: 5px 10px;
+    padding: 5px 15px;
     border-radius: 5px;
     border: 1px solid rgb(204, 204, 204);
     position: relative;
-    height:55px;
+    height:60px;
     overflow: hidden;
+    display: flex;
+    text-align: start;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 .activeCard {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 .hover {
     outline: 1px solid blue;
@@ -289,3 +308,26 @@ textarea {
     color: rgba(0, 0, 0, 0.6);
   }
   
+.intro-main{
+    height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.7;
+}
+
+  .car {
+    width: auto;
+    height: 110px;
+    position: relative;
+    animation: myfirst 12s linear 2s infinite normal;
+  }
+  
+  @keyframes myfirst {
+    0%   { left:0px; top:0px;}
+    25%  { left:300px; top:0px;}
+    50%  { left:600px; top:0px;}
+    75%  { left:900px; top:0px;}
+    100% { left:1250px; top:0px;}
+  }
