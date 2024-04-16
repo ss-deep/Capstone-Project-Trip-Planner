@@ -1,39 +1,157 @@
-<div class="example-parent">
-    <div class="example-origin">
-        <div  id="draggable-1"
-        class="example-draggable"
-        draggable="true"
-        ondragstart="onDragStart(event);">
-        draggable
-      </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+    <div class="container-fluid g-0">
+
+        <main class="d-flex flex-nowrap"> 
+            <!-- Navbar -->
+            <nav class=" col-md-3 col-lg-2 d-md-block sidebar collapse " id="">
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button> -->
+                <div class="navbar-list p-2 mt-5 " >
+                    <ul class="list-group mt-5" id="list-tab" role="tablist">
+                      <li class="list-group-item  list-group-item-action active" id="list-itinerary-list" data-bs-toggle="list" role="tab" href="#list-itinerary">Itinerary
+                        <li class="list-group-item  list-group-item-action " id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard">Dashboard</li>
+                            <!-- <div class="sub-item-list dates">
+                                <ul class="list-group" id="list-tab" role="tablist">
+                                    <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 1</li>
+                                    <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 2</li>
+                                    <li class="list-group-item list-group-item-action" id="list-dashboard-list" data-bs-toggle="list" role="tab" href="#list-dashboard" href="#">Day 3</li>
+                                </ul>
+                            </div> -->
+                        </li>
+                        <li class=" list-group-item  list-group-item-action" id="list-notes-list" data-bs-toggle="list" role="tab" href="#list-notes">Notes</li>
+                        <li class=" list-group-item  list-group-item-action" id="list-budget-list" data-bs-toggle="list" role="tab" href="#list-budget">Summary</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- End of Navbar -->
+
+            <!-- Main Sub Section-->
+            <section class="main-content d-flex">
+                <!--Info Section-->
+                <div class="sub-section border-end tab-content overflow-auto" id="">
+                <!-- Itinerary-->
+                  <div class="dash-container tab-pane fade show active" id="list-itinerary" role="tabpanel"  >
+                    <h3>Make your Itinerary</h3>
+
+                    <div class="row  g-0"><!--removed from classmb-md-0 mb-4 -->
+                      <div class="selected-activities-list mt-3" id="drop-zone" ><!--removed from class overflow-wrapper-->
+                          <h4>Day 1</h4>
+                          <ul class="dnd-card drag-drop list-group list-group-flush " id="day1" data-mdb-sortable="sortable" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+                              <span>Drag &amp; Drop to add activities here</span>
+                          </ul>
+                          <h4>Day 2</h4>
+                          <ul class="dnd-card drag-drop list-group list-group-flush " id="day2" data-mdb-sortable="sortable" ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+                              <span>Drag &amp; Drop to add activities here</span>
+                          </ul>
+                      </div>
+                    </div>
+                </div>
+                     
+                <!-- Dashboard-->
+                  <div class="dash-container tab-pane fade show " id="list-dashboard" role="tabpanel">
+                      <div class="bg-light border-end position-relative ">
+                          <div class="row g-0">
+                              <img class="vac-img" src="/images/vacation.jpg" alt="vacation-image">
+                              <div class="trip-details-box shadow-lg p-3">
+                                  <input type="input" class="form_field" placeholder="Trip Name" name="name" id='trip-name'/>
+                                  <div class="dates mt-2" id="selected-dates-range">Apr 1 - Apr 8</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="days row mb-md-0 mb-4 p-3 mt-5 g-0" id="trip-summary">
+                          <h4>Trip Summary</h4>
+                          <h5>Day 1</h5>
+                          <ul class="list-group list-group-flush" id="" data-mdb-sortable="sortable">
+                            <li class="list-group-item drag-item cursor-move" draggable="true">
+                              <span>New icons set for an iOS app.</span>
+                            </li>
+                            <li class="list-group-item drag-item cursor-move">
+                              <span> Fix validation bugs and commit.</span>
+                            </li>
+                            <li class="list-group-item drag-item cursor-move">
+                              <span> Help Web developers with HTML integration.</span>
+                            </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!-- <hr class="mx-5" /> -->
+
+                <!-- Notes-->
+                  <div class="dash-container tab-pane fade" id="list-notes" role="tabpanel" >
+                      <div class="paper mt-5"><textarea class="" placeholder="Write your notes here..."></textarea></div>
+                  </div>
+
+                <!-- Budget-->
+                  <div class="dash-container tab-pane fade" id="list-budget" role="tabpanel" >Summary</div>
+                <!-- End of Info Section-->
+                </div>
+                
+                <!-- API/Map Section-->
+                <div class="sub-section dash-container">
+                  <div class="autocomplete-container" id="autocomplete-container"></div>
+                  <div class="autocomplete-container" id="autocomplete-container-city"></div>   
+                  <!-- <hr class="mx-5" /> -->    
+
+                  <div class="row mb-md-0 mb-4 g-0">
+                    <div class=" overflow-wrapper mt-3">
+                      <div class="day-section px-3" id="places-to-visit">
+                        <!-- <li class="source-card dnd-card list-group-item drag-item cursor-move" draggable="true" ondragstart="handleDragStart(event)">
+                          <div class="main-information">
+                              <h5 class="f-s-18 m-b-8">Texas State Capitol</h5>
+                              <div class="row orange-text m-b-2 ">
+                              <span class="hours">Opening Hrs</span></div>
+                              <div class="description gray" title="">                                
+                                The Texas State Capitol, completed in 1888 in Downtown Austin, contains the offices and chambers of the Texas Legislature and the Office of the Governor. 
+                                Designed in 1881 by architect Elijah E. Myers, it was constructed from 1882 to 
+                                1888 under the direction of civil engineer Reuben Lindsay Walker. A $75 million 
+                                underground extension was completed in 1993. 
+                              </div>
+                          </div>
+                        </li>
+                        <li class="source-card dnd-card list-group-item drag-item cursor-move" draggable="true" ondragstart="handleDragStart(event)">
+                          <div class="main-information">
+                              <h5 class="f-s-18 m-b-8">Texas State Capitol</h5>
+                              <div class="row orange-text m-b-2 ">
+                              <span class="hours">Opening Hrs</span></div>
+                              <div class="description gray" title="">                                
+                                The Texas State Capitol, completed in 1888 in Downtown Austin, contains the offices and chambers of the Texas Legislature and the Office of the Governor. 
+                                Designed in 1881 by architect Elijah E. Myers, it was constructed from 1882 to 
+                                1888 under the direction of civil engineer Reuben Lindsay Walker. A $75 million 
+                                underground extension was completed in 1993. 
+                              </div>
+                          </div>
+                        </li> -->
+
+                      </div>
+                    </div>
+                  </div>
+
+                    </div>
+                  </div> 
+                </div>        
+                <!-- End of API/Map Section-->
+            </section>
+            <!-- End of Main Sub Section -->
+        </main> 
     </div>
 
-    <div class="example-dropzone"
-      ondragover="onDragOver(event);"
-      ondrop="onDrop(event);">
-      dropzone
-    </div>
-  </div>
-<!-- function onDragStart(event) {
-  event
-    .dataTransfer
-    .setData('text/plain', event.target.id);
-}
 
-  function onDragOver(event) {
-    event.preventDefault();
-  }
-  function onDrop(event) {
-    const id = event
-      .dataTransfer
-      .getData('text');
-    const draggableElement = document.getElementById(id);
-    const dropzone = event.target;
-    dropzone.appendChild(draggableElement);
-    event
-    .dataTransfer
-    .clearData();
-  } -->
-  <!-- let autocompleteItemsElement = document.createElement("div");
-      autocompleteItemsElement.setAttribute("class", "autocomplete-items");
-      containerElement.appendChild(autocompleteItemsElement); -->
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script defer src="./index.js"></script>
+</body>
+
+</html>

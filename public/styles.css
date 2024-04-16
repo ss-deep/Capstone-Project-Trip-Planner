@@ -41,7 +41,7 @@ header{
     border-radius: 15px !important;
 }
 .sidebar {
-    background-color: #DD6E41;
+    background-color: #f8703a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +67,7 @@ header{
 }
 .sub-section{
     width: 100%;
-    background-color:#EAEAEA;
+    background-color:#ffffff;
 }
 .form_field {
     width: 100%;
@@ -88,11 +88,112 @@ header{
 #dashboard{
     height: 100vh;
 }
-.summary-list{
+/* .summary-list{
     margin: 10px 20px;
     border-radius: 8px;
+} */
+.drag-drop{
+    border: 1px dashed #969696;
+    min-height:20vh;
+    height: auto;
+    z-index: 0;
+    border-radius: 10px; 
+}
+.draggable{
+
+}
+/* -------Itinerary Section-------- */
+#list-itinerary li, #trip-summary li{
+    background-color: #ffffff;
+    margin: 10px;
+}
+ .orange-text {
+    color: #ffa280
 }
 
+ .day-section {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.selected-activities-list{
+    /* overflow: auto; */
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.dnd-card {
+    /* margin: 5px 0px; */
+    align-items: center;
+    border: 1.5px dashed #d3d3d3 !important;
+    color: #9ea4af;
+    display: flex;
+    justify-content: center;
+    min-height: 64px;
+    min-width: 260px;
+    background-color: white;
+    border-radius: 10px;
+    /* z-index: 1; */
+}
+.dnd-card.over{
+    border: 2px dashed #000;
+}
+.source-card {
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
+    border-style: solid;
+    border-width: 1px;
+    border-image-source: linear-gradient(180deg, #fafafa, hsla(0, 0%, 96%, 0));
+    border-image-slice: 1;
+    /* min-width: 610px; */
+    /* max-width: 620px; */
+    height: auto;
+    max-height: 170px;
+    min-height: 150px;
+    cursor: pointer;
+    margin-bottom: 16px;
+  }
+  .main-information{
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0,0,0,.65);
+  cursor: pointer;
+  width: 100%;
+  padding: 14px 16px;
+  }
+  .description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 3;
+  }
+.drop-item{
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+    position: relative;
+    height:55px;
+    overflow: hidden;
+}
+.activeCard {
+    outline: 1px solid red;
+}
+.hover {
+    outline: 1px solid blue;
+  }
+  .drop-item .remove {
+    position: absolute;
+    top:0;
+    right: 0;
+    color: #e84707;
+    margin:0px;
+  }
 /* -------Notes Section-------- */
 
 .paper {
@@ -114,60 +215,9 @@ textarea {
     outline: 0;
     padding:1rem;
 }
-/* -------Itinerary Section-------- */
-#list-itinerary li, #trip-summary li{
-    background-color: #ffffff;
-    margin: 10px;
-}
- .orange-text {
-    color: #ffa280
-}
-/*.uppercase {
-    text-transform: uppercase
-} */
- .day-section {
-    position: relative;
-    font-size: 14px;
-    line-height: 1.5;
-}
-.selected-activities-list{
-    overflow: auto;
-}
-
-.dnd-card {
-    /* margin: 5px 0px; */
-    align-items: center;
-    border: 1.5px dashed #d3d3d3 !important;
-    color: #9ea4af;
-    display: flex;
-    justify-content: center;
-    min-height: 64px;
-    min-width: 260px;
-    background-color: white;
-    border-radius: 10px;
-}
-
 /* -------API/Map Section-------- */
-.search{
-    height: 40px;
-    padding-top: 30px;
-}
-
-.autocomplete_search{
-    padding: 0 10px;
-    width: 28vw;
-    font-size: 1.1rem;
-    border-radius: 10px;
-    outline: 0;
-    line-height: 40px;
-
-}
 
 /* -------autocomplete Section-------- */
-/* body {
-    font: 16px;
-    background: #f3f5f6;
-  } */
   
   .autocomplete-container {
     /*the container must be positioned relative:*/
@@ -184,6 +234,7 @@ textarea {
     /* padding-right: 31px; */
     font-size: 16px;
     margin: 10px;
+    border-radius: 10px;
   }
   
   .autocomplete-items {
@@ -238,36 +289,3 @@ textarea {
     color: rgba(0, 0, 0, 0.6);
   }
   
-
-
-  .source-card {
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-    border-style: solid;
-    border-width: 1px;
-    border-image-source: linear-gradient(180deg, #fafafa, hsla(0, 0%, 96%, 0));
-    border-image-slice: 1;
-    /* min-width: 610px; */
-    /* max-width: 620px; */
-    height: auto;
-    max-height: 170px;
-    min-height: 150px;
-    cursor: pointer;
-    margin-bottom: 16px;
-  }
-  .main-information{
-  font-size: 14px;
-  line-height: 1.5;
-  color: rgba(0,0,0,.65);
-  cursor: pointer;
-  width: 100%;
-  padding: 14px 16px;
-  }
-  .description{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical; 
-    display: -webkit-box; 
-    -webkit-line-clamp: 3;
-  }
