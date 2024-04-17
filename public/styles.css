@@ -29,6 +29,12 @@ header{
 .main-content{
     width: 100vw;
 }
+
+.forgot-password p{
+    font-size: 1rem;
+    color: #ed6732;
+    text-align: center;
+}
 /* -------Navbar-------- */
 .navbar-list li{
     margin-bottom: 20px;

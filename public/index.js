@@ -5,41 +5,12 @@ const tripName = urlParams.get('trip-name');
 const startDate = urlParams.get('dates-range');
 let cityData;
 
-const baseURL = `http://localhost:9801`
-
 //Displays conten on trip details box
 document.getElementById('trip-name').value = tripName
 document.querySelectorAll('.dates').innerHTML = startDate
-const placesDiv=document.getElementById('places-to-visit')
+const placesDiv = document.getElementById('places-to-visit')
 
-//Implements drag and drop functionality for lists
-// const dragDrop = document.getElementById('drag-drop');
-// const completedTasks = document.getElementById('attraction-drag-drop');
-// Sortable.create(dragDrop, {
-//   animation: 150,
-//   group: 'taskList'
-// });
-// Sortable.clone(source-card, {
-//   animation: 150,
-//   group: 'taskList'
-// });
-// $( function() {
-//   $( "#sortable" ).sortable({
-//     revert: true
-//   });
-//   $( "#draggable" ).draggable({
-//     connectToSortable: "#sortable",
-//     helper: "clone",
-//     revert: "invalid"
-//   });
-//   $( "ul, li" ).disableSelection();
-// });
-
-
-// ------------------JQuery draggable, droppable and sortable functionality-------------
-
-
-
+const baseURL = `http://localhost:9801`
 
 // ------------------Get attractions list and display it-------------
 let idNum=1
@@ -64,7 +35,6 @@ function getDataList(city) {
     .then((res) => {
       let attractionsList = res.data.features
       placesDiv.innerHTML=""
-      // console.log("reeeeeessspone",attractionsList['features'][0]['properties']['name']);
       attractionsList.forEach(place => {
         let placeHtml = createCard(place)  //returns string
         let placeNodeDiv = document.createElement('div')
@@ -73,13 +43,13 @@ function getDataList(city) {
           appendTo: 'body',
           helper: 'clone'
         });
-        console.log(placeNodeDiv);
         placeNodeDiv.innerHTML = placeHtml
         placesDiv.appendChild(placeNodeDiv) 
         
       })
     })
 }
+// ------------------JQuery draggable, droppable and sortable functionality-------------
 
 // $('.draggable').draggable({ 
 //   appendTo: 'body',
@@ -115,62 +85,9 @@ $('#day2').droppable({
 }).sortable({
   items: '.drop-item',
   sort: function() {
-    // gets added unintentionally by droppable interacting with sortable
-    // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
     $( this ).removeClass( "active" );
   }
 });
-
-
-
-
-
-
-// ------------------Handles drag and drop of attractions list items to the days container-------------
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Select the draggable element
-//   const draggableElement = document.querySelector('.source-card');
-//   // Select the drop zone
-//   const dropZone = document.getElementById('list-itinerary');
-//       draggableElement.addEventListener('dragstart', handleDragStart);
-//       dropZone.addEventListener('dragover', handleDragOver);
-//       dropZone.addEventListener('drop', handleDrop);
-// });
-
-// function handleDragStart(event) {
-//   const clone = event.target.cloneNode(true);
-//   clone.setAttribute('draggable', true);
-//   event.dataTransfer.setData('text/plain', event.target.id);
-// }
-
-// function handleDragOver(event) {
-//   //to allow drop 
-//   event.preventDefault();
-// }
-
-// function handleDrop(event) {
-//   event.preventDefault();
-//   // Get the dragged data
-//   const data = event.dataTransfer.getData('text/plain');
-//   const draggedElement = document.getElementById(data);
-
-//   if (draggedElement) {
-//       // Clone the dragged element
-//       const clone = draggedElement.cloneNode(true);
-//       clone.setAttribute('draggable', false);
-//     // Append the cloned element to the drop zone
-
-//     // const ulContainer = document.querySelector('ul')
-//     // ulContainer.appendChild(clone)
-//     event.target.appendChild(clone);
-//     // console.log(event.target);
-//     // event.target.querySelector('ul').appendChild(clone)
-//     // event.target.cl
-//   } else {
-//       console.error('Element not found with ID:', data);
-//   }
-// }
 
 
 

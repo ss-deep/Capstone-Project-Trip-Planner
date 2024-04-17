@@ -29,25 +29,63 @@
           <p class="lead mb-4">Plan your trips effortlessly! Create and map tailored itineraries with our planner, perfect for vacations and road trips.
         </p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="mybutton btn btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#plannerModal" id="planner">Start Planning</button>
+            <button type="button" class="mybutton btn btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#loginModal" id="planner">Start Planning</button>
           </div>
         </div>
       </main>
+
+      <!-- User login modal -->
+
+      <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="loginModalLabel">Login Form</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+            </div>
+            <div class="modal-body">
+              <form id="login-form">
+                <div class="py-2 px-3">
+                  <label for="user-name" class="col-form-label">Enter username </label>
+                  <input type="text" class="form-control" id="user-name">
+                </div>
+                <div class="py-2 px-3">
+                  <label for="user-password" class="col-form-label">Password</label>
+                  <input type="password" name="password" class="form-control" value="" id="user-password"/>
+                </div>
+              </form>
+            </div>
+            <div class="forgot-password">
+              <p class="f-s-12 p-t-5">
+                <a class="c-p" href="#forgotPassword">Forgot password?</a>
+                <span> or </span>
+                <a class="c-p" href="#signup">Sign Up</a>
+              </p>
+            </div>
+            <div class="modal-footer mt-1">
+              <button type="submit" class="mybutton btn" id="login-button" data-bs-toggle="modal" data-bs-target="#plannerModal"><span>Login</span></button>            
+            </div>
+          </div>
+        </div>
+      </div>   
+
+      <!-- Trip details modal -->
+
       <div class="modal fade" id="plannerModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="plannerModalLabel">Create Itinerary</h5>
+              <h4 class="modal-title" id="plannerModalLabel">Create Itinerary</h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
             </div>
 
             <div class="modal-body">
               <form>
-                <div class="py-2">
+                <div class="py-2 px-3">
                   <label for="trip-name" class="col-form-label">Enter your trip name </label>
                   <input type="text" class="form-control" id="trip-name">
                 </div>
-                <div class="py-2">
+                <div class="py-2 px-3">
                   <label for="dates" class="col-form-label">Dates:</label>
                   <input type="text" name="datefilter" class="form-control" value="" id="dates-range"/>
                 </div>
@@ -60,6 +98,7 @@
           </div>
         </div>
       </div>   
+
       <div>
         <img class="car" src="/images/car.png" alt="Moving car">
       </div>
