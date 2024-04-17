@@ -28,6 +28,7 @@ header{
 }
 .main-content{
     width: 100vw;
+    height: 93vh;
 }
 
 .forgot-password p{
@@ -50,16 +51,14 @@ header{
     border-radius: 15px !important;
 }
 .sidebar {
-    /* background-color: #f8703a; */
+    background-color: #d8d8d8;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.sidebar{
     font-weight: 700;
     font-size: 1.2rem;
-    /* color: #E2B9AC; */
 }
+
 /* -------Main Sub Section-------- */
 .vac-img{
     height: 200px;
@@ -112,8 +111,10 @@ header{
     border-width: 1px;
     cursor: pointer;
 }
-.draggable{
-
+.drag-drop>span{
+    /* height: 100%; */
+    position: relative;
+    color: #9ea4af;
 }
 /* -------Itinerary Section-------- */
 #list-itinerary li, #trip-summary li{

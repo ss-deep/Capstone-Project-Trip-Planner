@@ -4,6 +4,8 @@ const app = express()
 require('dotenv').config()
 const {SERVER_PORT} = process.env
 const path = require("path")
+const {seed} = require('./seed.js')
+
 
 app.use(express.json())
 app.use(cors())
@@ -14,9 +16,12 @@ app.use(cors())
 // })
 
 app.use(express.static(`${__dirname}/public`))
-
 const { getAttractions } = require('./controller.js')
 
+// DEV
+app.post('/seed', seed)
+
+// USER
 app.post('/attractions', getAttractions)
 
 app.listen(SERVER_PORT,()=>console.log(`up on ${SERVER_PORT}`))

@@ -1,14 +1,19 @@
 
 // const { default: axios } = require('axios')
-const urlParams = new URLSearchParams(window.location.search);
-const tripName = urlParams.get('trip-name');
-const startDate = urlParams.get('dates-range');
+
 let cityData;
 
-//Displays conten on trip details box
-document.getElementById('trip-name').value = tripName
-document.querySelectorAll('.dates').innerHTML = startDate
 const placesDiv = document.getElementById('places-to-visit')
+
+const urlParams = new URLSearchParams(window.location.search);
+const tripName = urlParams.get('my-trip-name');
+const tripDate = urlParams.get('dates-range');
+const loginName = urlParams.get('user-name');
+
+//Displays content on trip details box and display login name
+document.getElementById('trip-name').value = tripName
+document.querySelectorAll('.dates').innerHTML = tripDate
+document.getElementById('login-name').innerHTML=loginName
 
 const baseURL = `http://localhost:9801`
 
@@ -64,13 +69,14 @@ $('#day1').droppable({
     var $el = $('<div class="drop-item">'+ui.draggable.text()+'</div>');
     $el.append($('<button type="button" class="btn remove">X</button>').click(function () { $(this).parent().detach(); }));
     $(this).append($el);
+    
   }
 }).sortable({
   items: '.drop-item',
   sort: function() {
     // gets added unintentionally by droppable interacting with sortable
     // using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
-    $( this ).removeClass( "active" );
+    $(this).removeClass("active");
   }
 });
 $('#day2').droppable({
