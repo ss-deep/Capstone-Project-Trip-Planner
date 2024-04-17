@@ -1,5 +1,6 @@
 
 // const { default: axios } = require('axios')
+const baseURL = `http://localhost:9801`
 
 let cityData;
 
@@ -12,10 +13,33 @@ const loginName = urlParams.get('user-name');
 
 //Displays content on trip details box and display login name
 document.getElementById('trip-name').value = tripName
-document.querySelectorAll('.dates').innerHTML = tripDate
-document.getElementById('login-name').innerHTML=loginName
+document.querySelector('.dates').value = tripDate
+document.getElementById('login-name').innerHTML = loginName
 
-const baseURL = `http://localhost:9801`
+const datePicker = document.querySelector('input[name="datefilter"]')
+
+    $(function() {
+    
+      $(datePicker).daterangepicker({
+          autoUpdateInput: false,
+          locale: {
+              cancelLabel: 'Clear'
+          }
+      });
+    
+      $(datePicker).on('apply.daterangepicker', function(ev, picker) {
+          $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      });
+    
+      $(datePicker).on('cancel.daterangepicker', function(ev, picker) {
+          $(this).val('');
+      });
+    
+    });
+
+
+
+
 
 // ------------------Get attractions list and display it-------------
 let idNum=1
