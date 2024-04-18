@@ -121,6 +121,12 @@ header{
     position: relative;
     color: #9ea4af;
 }
+
+#feedback{
+    visibility: hidden;
+    text-align: center;
+    color: red;
+}
 /* -------Itinerary Section-------- */
 #list-itinerary li, #trip-summary li{
     background-color: #ffffff;

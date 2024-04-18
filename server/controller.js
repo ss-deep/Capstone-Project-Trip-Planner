@@ -10,14 +10,35 @@ const axios = require('axios')
 module.exports = {
     checkUserData: (req, res) => { 
          // Read query parameters
-  const loginUserName = req.query.loginUserName;
-  const loginPassword = req.query.loginPassword;
+        const loginUserName = req.query.loginUserName;
+        const loginPassword = req.query.loginPassword;
 
-  // Your logic here (e.g., authentication)
-  console.log('Received loginUserName:', loginUserName);
-  console.log('Received loginPassword:', loginPassword);
+        // Your logic here (e.g., authentication)
+        console.log('Received loginUserName:', loginUserName);
+        console.log('Received loginPassword:', loginPassword);
+        sequelize.query(`
+        select * from users where username = '${loginUserName}' and password = '${loginPassword}';
+        `).then((dbRes) => {
+            res.status(200).send(dbRes[0])
+         }).catch(err => console.log('error checking data', err))
+
     },
-    setUserData: (req, res) => { },
+
+
+    insertUserData: (req, res) => { 
+        const {signupUserName,signupEmail,signupPassword} = req.body;
+        // // Your logic here (e.g., authentication)
+        console.log('Received signupUserName:', signupUserName);
+        // // console.log('Received loginPassword:', loginPassword);
+        //const { name, rating, countryId } = req.body
+
+        sequelize.query(`
+        insert into users (username, password, email)
+        values (${signupUserName}, ${signupEmail}, ${signupPassword});
+        `).then((dbRes) => {
+            res.status(200).send(dbRes[0])
+         }).catch(err => console.log('error inserting data', err))
+    },
 
     getAttractions: async (req, res) => {
         try {

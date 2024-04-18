@@ -16,14 +16,14 @@ app.use(cors())
 // })
 
 app.use(express.static(`${__dirname}/public`))
-const {checkUserData, setUserData, getAttractions } = require('./controller.js')
+const {checkUserData, insertUserData, getAttractions } = require('./controller.js')
 
 // DEV
 app.post('/seed', seed)
 
 // Hello.html
 app.get('/login', checkUserData)
-app.post('/signup', setUserData)
+app.post('/signup', insertUserData)
 
 // Index.html
 app.post('/attractions', getAttractions)
