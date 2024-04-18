@@ -39,14 +39,14 @@ module.exports = {
     insertPlannerData: (req, res) => {
 
         console.log("inside insertPlannerData");
-        const {loginUserName,tripName,tripDates} = req.body;
+        const {userId,username,tripName,tripDates} = req.body;
         console.log('Received tripDates:', tripDates);
-        res.status(200).send("going back");
+        // res.status(200).send("going back");
         sequelize.query(`
-        insert into trip (user_id, password, email)
-        values ('${signupUserName}', '${signupPassword}', '${signupEmail}');
+        insert into trip (user_id, trip_name, date)
+        values (${userId}, '${tripName}', '${tripDates}');
         `).then((dbRes) => {
-            res.status(200).send(dbRes[0])
+            res.status(200).send("Successful!")
          }).catch(err => console.log('error inserting data', err))
     },
 

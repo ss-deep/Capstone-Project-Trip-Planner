@@ -20,16 +20,16 @@ const submitAndRedirect = document.getElementById("submit-trip-info")
 const tripName = document.getElementById("my-trip-name")
 const tripDates = document.getElementById("dates-range")
 
+let userId;
+let username;
 
-
+document.getElementById('planner').addEventListener('click', () => {
+  loginUserName.value = ""
+  loginPassword.value=""
+})
 const baseURL = `http://localhost:9801`
 
 document.addEventListener('DOMContentLoaded', function () {
-  // const loginForm = document.getElementById('login-form');
-  // const loginButton = document.getElementById('login-button');
-  loginUserName.value = ""
-  loginPassword.value=""
-
   loginForm.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent default form submission
 
@@ -44,9 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .then((res) => {
           let userData = res.data
           if (userData.length) {
-            console.log(res.data);
+            // console.log("login id :",userData[0].user_id);
+            userId = userData[0].user_id
+            username=userData[0].username
             const plannerModal = new bootstrap.Modal(document.getElementById('plannerModal'));
-            // plannerModal.show();
             const loginModalInstance = bootstrap.Modal.getInstance(loginModal);
             loginModalInstance.hide();
             plannerModal.show();
@@ -78,7 +79,7 @@ signUpButton.addEventListener('click', () => {
     signupPassword:signupPassword.value
   })
   .then((res) => {
-    console.log(res.data);
+    console.log("signup ",res.data);
   }).catch((err) => {
     console.log("Error in sign up");
   });
@@ -88,13 +89,14 @@ signUpButton.addEventListener('click', () => {
 submitAndRedirect.addEventListener('click', () => {
   console.log("inside submitAndRedirect");
   axios.post(`${baseURL}/planner`,{
-    loginUserName:loginUserName.value,
+    userId: userId,
+    username:username,
     tripName:tripName.value,
     tripDates:tripDates.value
   })
   .then((res) => {
-    console.log("responce for submitAndRedirect :" , res.data);
-    window.location.href = `index.html?username=${loginUserName}`
+    // console.log("responce for submitAndRedirect :" , res.data);
+    window.location.href = `index.html?username=${username}`
   }).catch((err) => {
     console.log("Error in sending data to index.html");
   });
