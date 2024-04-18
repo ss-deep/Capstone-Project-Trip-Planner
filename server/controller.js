@@ -8,6 +8,17 @@ const {API_KEY}=process.env
 const axios = require('axios')
 
 module.exports = {
+    checkUserData: (req, res) => { 
+         // Read query parameters
+  const loginUserName = req.query.loginUserName;
+  const loginPassword = req.query.loginPassword;
+
+  // Your logic here (e.g., authentication)
+  console.log('Received loginUserName:', loginUserName);
+  console.log('Received loginPassword:', loginPassword);
+    },
+    setUserData: (req, res) => { },
+
     getAttractions: async (req, res) => {
         try {
             if (req.body.properties.place_id!=='undefined') {

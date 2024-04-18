@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Planner</title>
+    <title>RoamReady</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" >
     <link rel="stylesheet" href="styles.css">
@@ -16,10 +16,10 @@
           <svg width="30" height="30">
             <!-- <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /> -->
           </svg>  
-          <a class="navbar-brand" href="#">Fixed navbar</a>
+          <a class="navbar-brand" href="#">RoamReady</a>
         </div>
         <form class="me-4">
-          <button class="btn btn-outline-light " type="button">Login</button>
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
         </form>
       </nav>
     </header>
@@ -47,23 +47,60 @@
               <form id="login-form">
                 <div class="py-2 px-3">
                   <label for="user-name" class="col-form-label">Enter username </label>
-                  <input type="text" class="form-control" id="user-name">
+                  <input type="text" class="form-control" id="login-username">
                 </div>
                 <div class="py-2 px-3">
                   <label for="user-password" class="col-form-label">Password</label>
-                  <input type="password" name="password" class="form-control" value="" id="user-password"/>
+                  <input type="password" name="password" class="form-control" value="" id="login-password"/>
                 </div>
               </form>
+              <div class="forgot-password">
+                <p class="p-t-5">
+                  <a class="c-p" href="#forgotPassword">Forgot password?</a>
+                  <span> or </span>
+                  <a class="c-p" href="#" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</a>
+                </p>
             </div>
-            <div class="forgot-password">
-              <p class="p-t-5">
-                <a class="c-p" href="#forgotPassword">Forgot password?</a>
-                <span> or </span>
-                <a class="c-p" href="#signup">Sign Up</a>
-              </p>
+            
             </div>
             <div class="modal-footer mt-1">
               <button type="submit" class="mybutton btn" id="login-button" data-bs-toggle="modal" data-bs-target="#plannerModal"><span>Login</span></button>            
+            </div>
+          </div>
+        </div>
+      </div>   
+
+      <!-- User Sign Up modal -->
+
+      <div class="modal fade" id="signUpModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="signUpModalLabel">Sign Up Form</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
+            </div>
+            <div class="modal-body">
+              <form id="signUp-form">
+                <div class="py-2 px-3">
+                  <label for="user-name" class="col-form-label">Enter username </label>
+                  <input type="text" class="form-control" id="signup-username">
+                </div>
+                <div class="py-2 px-3">
+                  <label for="user-password" class="col-form-label">Create Password</label>
+                  <input type="password" name="password" class="form-control" value="" id="signup-password"/>
+                </div>
+              </form>
+              <div class="forgot-password">
+                <p class="p-t-5">
+                  <a class="c-p" href="#forgotPassword">Forgot password?</a>
+                  <span> or </span>
+                  <a class="c-p" href="" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a>
+                </p>
+              </div>
+            </div>
+            
+            <div class="modal-footer mt-1">
+              <button type="submit" class="mybutton btn" id="signUp-button" data-bs-toggle="modal" data-bs-target="#plannerModal"><span>Sign Up</span></button>            
             </div>
           </div>
         </div>
@@ -83,7 +120,7 @@
               <form>
                 <div class="py-2 px-3">
                   <label for="trip-name" class="col-form-label">Enter your trip name </label>
-                  <input type="text" class="form-control" id="my-trip-name">
+                  <input type="text" class="form-control" id="my-trip-name"/>
                 </div>
                 <div class="py-2 px-3">
                   <label for="dates" class="col-form-label">Dates:</label>
@@ -93,7 +130,7 @@
             </div>
             <div class="modal-footer mt-1">
               <button type="button" class="cancel-btn btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-              <button type="submit" class="mybutton btn" id="submit-dates" data-bs-dismiss="modal">Let's go!</button>
+              <button type="submit" class="mybutton btn" id="submit-trip-info" data-bs-dismiss="modal">Let's go!</button>
             </div>
           </div>
         </div>
@@ -110,7 +147,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<!-- <script type="text/javascript" src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>     -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
     $(function() {
     
@@ -130,6 +167,13 @@
       });
     
     });
+    // $(document).ready(function() {
+
+    // if(window.location.href.indexOf('#loginModal') != -1) {
+    //   $('#loginModal').modal('show');
+    // }
+
+    // });
 </script>
     
 <script type="module" src="./index.js"></script>

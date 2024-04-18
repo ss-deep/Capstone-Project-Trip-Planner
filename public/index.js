@@ -14,7 +14,7 @@ const loginName = urlParams.get('user-name');
 //Displays content on trip details box and display login name
 document.getElementById('trip-name').value = tripName
 document.querySelector('.dates').value = tripDate
-document.getElementById('login-name').innerHTML = loginName
+document.getElementById('login-name').innerHTML = `Welcome ${loginName}!`
 
 const datePicker = document.querySelector('input[name="datefilter"]')
 
@@ -37,7 +37,7 @@ const datePicker = document.querySelector('input[name="datefilter"]')
     
     });
 
-
+// function setd
 
 
 
