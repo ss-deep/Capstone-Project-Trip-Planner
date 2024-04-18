@@ -346,3 +346,31 @@ textarea {
     75%  { left:900px; top:0px;}
     100% { left:1250px; top:0px;}
   }
+
+  #day1 {
+    position: relative; /* Ensure this is set so that absolute positioning within it is relative to it */
+    overflow: hidden; /* Hides anything that overflows the bounds of #day1 */
+}
+#day2 {
+    position: relative; /* Ensure this is set so that absolute positioning within it is relative to it */
+    overflow: hidden; /* Hides anything that overflows the bounds of #day1 */
+}
+
+.draggable-item {
+    position: relative; /* Necessary for positioning the close button */
+    box-sizing: border-box; /* Include padding and borders in the element's dimensions */
+    width: 100%; /* Assuming you want it to take full container width */
+    padding-right: 40px; /* Right padding to make room for the close button */
+}
+
+.btn.remove {
+    position: absolute;
+    top: 10px; /* Adjust top positioning to ensure visibility */
+    right: 10px; /* Position from the right edge of the draggable item */
+    z-index: 100; /* Makes sure it's above other content */
+    background-color: red; /* High visibility for testing */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
