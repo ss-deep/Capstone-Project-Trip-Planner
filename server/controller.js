@@ -24,13 +24,26 @@ module.exports = {
 
     },
 
-
     insertUserData: (req, res) => { 
         const {signupUserName,signupEmail,signupPassword} = req.body;
         console.log('Received signupUserName:', signupUserName);
 
         sequelize.query(`
         insert into users (username, password, email)
+        values ('${signupUserName}', '${signupPassword}', '${signupEmail}');
+        `).then((dbRes) => {
+            res.status(200).send("Successful!")
+         }).catch(err => console.log('error inserting data', err))
+    },
+
+    insertPlannerData: (req, res) => {
+
+        console.log("inside insertPlannerData");
+        const {loginUserName,tripName,tripDates} = req.body;
+        console.log('Received tripDates:', tripDates);
+        res.status(200).send("going back");
+        sequelize.query(`
+        insert into trip (user_id, password, email)
         values ('${signupUserName}', '${signupPassword}', '${signupEmail}');
         `).then((dbRes) => {
             res.status(200).send(dbRes[0])
@@ -52,3 +65,4 @@ module.exports = {
         }
     }
 }
+

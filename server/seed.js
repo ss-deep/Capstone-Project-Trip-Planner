@@ -11,6 +11,7 @@ module.exports = {
         drop table if exists notes;
         drop table if exists days;
         drop table if exists trip_details;
+        drop table if exists trip;
         drop table if exists users;
 
         create table users (
@@ -18,6 +19,12 @@ module.exports = {
             username varchar(100), 
             password varchar(100), 
             email varchar(50)
+        );
+        create table trip (
+            trip_id serial primary key, 
+			user_id integer references users(user_id), 
+            trip_name varchar(100), 
+            date varchar(50)
         );
 
         create table notes (

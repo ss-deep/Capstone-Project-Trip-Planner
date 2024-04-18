@@ -1,5 +1,8 @@
 
 // Get trip name and dates from the modal in intro.html
+
+// const { default: axios } = require("axios");
+
 // const inputs = document.querySelectorAll('input')
 const loginButton = document.getElementById("login-button")
 const invalidFeedback = document.querySelector('.invalid-feedback')
@@ -8,12 +11,14 @@ let loginUserName=document.getElementById('login-username')
 let loginPassword = document.getElementById('login-password')
 const loginModal = document.getElementById('loginModal');
 
-
 let signupUserName=document.getElementById('signup-username')
 let signupEmail=document.getElementById('signup-email')
 let signupPassword=document.getElementById('signup-password')
 const signUpButton = document.getElementById("signUp-button")
-const submitDates = document.getElementById("submit-trip-info")
+
+const submitAndRedirect = document.getElementById("submit-trip-info")
+const tripName = document.getElementById("my-trip-name")
+const tripDates = document.getElementById("dates-range")
 
 
 
@@ -75,11 +80,24 @@ signUpButton.addEventListener('click', () => {
   .then((res) => {
     console.log(res.data);
   }).catch((err) => {
-    console.log("Error in login");
+    console.log("Error in sign up");
   });
-
 })
-submitDates.addEventListener('click', () => {
-  window.location.href = `index.html` 
-});
+  
+  
+submitAndRedirect.addEventListener('click', () => {
+  console.log("inside submitAndRedirect");
+  axios.post(`${baseURL}/planner`,{
+    loginUserName:loginUserName.value,
+    tripName:tripName.value,
+    tripDates:tripDates.value
+  })
+  .then((res) => {
+    console.log("responce for submitAndRedirect :" , res.data);
+    window.location.href = `index.html?username=${loginUserName}`
+  }).catch((err) => {
+    console.log("Error in sending data to index.html");
+  });
+  
+})
 
