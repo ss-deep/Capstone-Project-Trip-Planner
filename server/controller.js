@@ -27,14 +27,11 @@ module.exports = {
 
     insertUserData: (req, res) => { 
         const {signupUserName,signupEmail,signupPassword} = req.body;
-        // // Your logic here (e.g., authentication)
         console.log('Received signupUserName:', signupUserName);
-        // // console.log('Received loginPassword:', loginPassword);
-        //const { name, rating, countryId } = req.body
 
         sequelize.query(`
         insert into users (username, password, email)
-        values (${signupUserName}, ${signupEmail}, ${signupPassword});
+        values ('${signupUserName}', '${signupPassword}', '${signupEmail}');
         `).then((dbRes) => {
             res.status(200).send(dbRes[0])
          }).catch(err => console.log('error inserting data', err))
