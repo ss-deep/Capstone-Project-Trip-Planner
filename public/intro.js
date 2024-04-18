@@ -64,21 +64,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 signUpButton.addEventListener('click', () => { 
-//   axios.get(`${baseURL}/signup`, inputs)
-//   .then((res) => {
-//     console.log(res.data);
-//   }).catch((err) => {
-//     console.log("Error in sign up");
-  //   });
-  
-  let signupUserName=document.getElementById('signup-username').value
-  let signupEmail=document.getElementById('signup-email').value
-  let signupPassword=document.getElementById('signup-password').value
-  // console.log({userName:loginUserName,password:loginPassword});
+  let signupUserName=document.getElementById('signup-username')
+  let signupEmail=document.getElementById('signup-email')
+  let signupPassword=document.getElementById('signup-password')
+  console.log({signupUserName,signupEmail,signupPassword});
   axios.post(`${baseURL}/signup`,{
-    signupUserName:signupUserName,
-    signupEmail:signupEmail,
-    signupPassword:signupPassword
+    signupUserName:signupUserName.value,
+    signupEmail:signupEmail.value,
+    signupPassword:signupPassword.value
   })
   .then((res) => {
     console.log(res.data);
