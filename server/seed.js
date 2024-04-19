@@ -10,15 +10,21 @@ module.exports = {
         sequelize.query(`
         drop table if exists notes;
         drop table if exists days;
-       drop table if exists trip_details;
-       drop table if exists users;
+        drop table if exists trip_details;
+        drop table if exists trip;
+        drop table if exists users;
 
         create table users (
             user_id serial primary key, 
             username varchar(100), 
             password varchar(100), 
-            email varchar(50), 
-            hint varchar(50)
+            email varchar(50)
+        );
+        create table trip (
+            trip_id serial primary key, 
+			user_id integer references users(user_id), 
+            trip_name varchar(100), 
+            date varchar(50)
         );
 
         create table notes (
@@ -42,12 +48,12 @@ module.exports = {
             user_id integer references users(user_id)
         );
 
-        insert into users (username, password, email, hint)
-        values ('Pennie', 'Green', 'pbenazet1@tripadvisor.com', 'Leaf color?'),
-            ('Salvidor', 'Fall', 'smoenss@google.it', 'What comes after summer?'),
-            ('Jarred', 'Spring', 'jgiraudyu@narod.ru', 'What comes after winter?'),
-            ('Leland', 'abcde', 'ltillsw@usgs.gov', 'First 5 letter in alphabets'),
-            ('Sullivan', 'Blue', 'sboddiex@cbsnews.com', 'Color of sky?');
+        insert into users (username, password, email)
+        values ('Pennie', 'Green', 'pbenazet1@tripadvisor.com'),
+            ('Salvidor', 'Fall', 'smoenss@google.it'),
+            ('Jarred', 'Spring', 'jgiraudyu@narod.ru'),
+            ('Leland', 'abcde', 'ltillsw@usgs.gov'),
+            ('Sullivan', 'Blue', 'sboddiex@cbsnews.com');
 
         insert into notes (user_id, note)
         values (1, 'The Texas State Capitol, completed in 1888 in Downtown Austin, contains the offices and chambers of the Texas Legislature and the Office of the Governor.'),

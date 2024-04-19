@@ -1,3 +1,6 @@
+// const { default: axios } = require("axios");
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get('user_id');
 
 // const { default: axios } = require('axios')
 const baseURL = `http://localhost:9801`
@@ -6,40 +9,50 @@ let cityData;
 
 const placesDiv = document.getElementById('places-to-visit')
 
-const urlParams = new URLSearchParams(window.location.search);
-const tripName = urlParams.get('my-trip-name');
-const tripDate = urlParams.get('dates-range');
-const loginName = urlParams.get('user-name');
 
 //Displays content on trip details box and display login name
-document.getElementById('trip-name').value = tripName
-document.querySelector('.dates').value = tripDate
-document.getElementById('login-name').innerHTML = loginName
+// document.getElementById('trip-name').value = tripName
+// document.querySelector('.dates').value = tripDate
+// document.getElementById('login-name').innerHTML = `Welcome ${loginName}!`
+getUserTripDetails()
+
+function getUserTripDetails() {
+
+  const userTripDetails = axios.post(`${baseURL}/trip-details`,{userId:userId})
+    .then((res) => {
+      console.log("userTripDetails res:", res.data[0]);
+      displayData(res.data[0])
+  }).catch((err) => {
+    console.log("Error in sending data to index.html");
+  });
+}
+
+function displayData(user) {
+  console.log(user.trip_name);
+  document.querySelector('.trip-name').value= user.trip_name
+  document.querySelector('.dates').value=user.date
+  document.getElementById('login-name').innerHTML = `Welcome ${user.username}!`
+  document.getElementById('trip').innerHTML =user.trip_name
+  document.getElementById('trip-dates').innerHTML = user.date
+
+}
 
 const datePicker = document.querySelector('input[name="datefilter"]')
-
     $(function() {
-    
       $(datePicker).daterangepicker({
           autoUpdateInput: false,
           locale: {
               cancelLabel: 'Clear'
           }
       });
-    
       $(datePicker).on('apply.daterangepicker', function(ev, picker) {
           $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
       });
-    
       $(datePicker).on('cancel.daterangepicker', function(ev, picker) {
           $(this).val('');
       });
     
     });
-
-
-
-
 
 // ------------------Get attractions list and display it-------------
 let idNum=1
@@ -80,10 +93,6 @@ function getDataList(city) {
 }
 // ------------------JQuery draggable, droppable and sortable functionality-------------
 
-// $('.draggable').draggable({ 
-//   appendTo: 'body',
-//   helper: 'clone'
-// });
 
 // Initialize sortable on #day1
 $('#day1').sortable({
@@ -164,19 +173,6 @@ $('#day2').droppable({
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //---------------------Autocomplete Api section----------------------
 

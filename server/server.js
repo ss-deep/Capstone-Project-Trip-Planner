@@ -16,12 +16,18 @@ app.use(cors())
 // })
 
 app.use(express.static(`${__dirname}/public`))
-const { getAttractions } = require('./controller.js')
+const {checkUserData, insertUserData, getAttractions, insertPlannerData, getUserTripDetails } = require('./controller.js')
 
 // DEV
 app.post('/seed', seed)
 
-// USER
+// Hello.html
+app.get('/login', checkUserData)
+app.post('/signup', insertUserData)
+app.post('/planner', insertPlannerData)
+
+// Index.html
+app.post('/trip-details', getUserTripDetails)
 app.post('/attractions', getAttractions)
 
 app.listen(SERVER_PORT,()=>console.log(`up on ${SERVER_PORT}`))
