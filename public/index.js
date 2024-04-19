@@ -14,8 +14,10 @@ const placesDiv = document.getElementById('places-to-visit')
 // document.getElementById('trip-name').value = tripName
 // document.querySelector('.dates').value = tripDate
 // document.getElementById('login-name').innerHTML = `Welcome ${loginName}!`
-getUserTripDetails()
+document.addEventListener('DOMContentLoaded', function () {
 
+  getUserTripDetails()
+})
 function getUserTripDetails() {
 
   const userTripDetails = axios.post(`${baseURL}/trip-details`,{userId:userId})
