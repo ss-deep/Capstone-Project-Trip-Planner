@@ -96,7 +96,7 @@ submitAndRedirect.addEventListener('click', () => {
   })
   .then((res) => {
     // console.log("responce for submitAndRedirect :" , res.data);
-    window.location.href = `index.html?username=${username}`
+    window.location.href = `index.html?user_id=${userId}`
   }).catch((err) => {
     console.log("Error in sending data to index.html");
   });

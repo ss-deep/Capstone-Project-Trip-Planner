@@ -84,7 +84,7 @@ header{
 }
 .trip-details-box{
     position:absolute;
-    height: 110px;
+    /* height: 110px; */
     width: 80%;
     background-color:white;
     border-radius: 30px;
