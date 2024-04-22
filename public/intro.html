@@ -119,12 +119,37 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="plannerModalLabel">Create Itinerary</h4>
+              <h4 class="modal-title" id="plannerModalLabel">Plan a your trip
+              </h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
             </div>
 
             <div class="modal-body">
               <form>
+                <!-- <div class="py-2 px-3">
+                  <label for="previous-trips" class="col-form-label">Pick from your recent trips </label>
+                  <input type="text" class="form-control" id="previous-trips"/>
+                </div> -->
+                <!-- <div class="dropdown py-2 px-3">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="previous-trips" data-bs-toggle="dropdown">
+                    Pick from your recent trips
+                  </button>
+                  <ul class="dropdown-menu" >
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div> -->
+                <div class="input-group py-2 px-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Pick from your recent trips</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected>Choose...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="d-flex align-items-center my-3"><div class="col LoginFormBody__hr"></div><div class="col-auto LoginFormBody__subtitle font-weight-bold">or</div><div class="col LoginFormBody__hr"></div></div>
                 <div class="py-2 px-3">
                   <label for="trip-name" class="col-form-label">Enter your trip name </label>
                   <input type="text" class="form-control" id="my-trip-name"/>

@@ -392,3 +392,26 @@ textarea {
     cursor: pointer;
 }
 
+
+
+.LoginFormBody__hr {
+    border-top: 1px solid #e9ecef;
+    height: 1px;
+}
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+.LoginFormBody__subtitle {
+    color: #6c757d;
+    font-size: .875rem;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+.col-auto {
+    flex: 0 0 auto;
+    max-width: 100%;
+    width: auto;
+}
