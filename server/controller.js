@@ -8,7 +8,7 @@ const {API_KEY}=process.env
 const axios = require('axios')
 
 module.exports = {
-    checkUserData: (req, res) => { 
+    checkUserData: async(req, res) => { 
          // Read query parameters
         const loginUserName = req.query.loginUserName;
         const loginPassword = req.query.loginPassword;
@@ -16,11 +16,28 @@ module.exports = {
         // Your logic here (e.g., authentication)
         console.log('Received loginUserName:', loginUserName);
         console.log('Received loginPassword:', loginPassword);
-        sequelize.query(`
-        select * from users where username = '${loginUserName}' and password = '${loginPassword}';
-        `).then((dbRes) => {
-            res.status(200).send(dbRes[0])
-         }).catch(err => console.log('error checking data', err))
+        let checkUser=await sequelize.query(`
+        select user_id from users where username = '${loginUserName}' and password = '${loginPassword}';
+        `)
+        console.log("checkUser[0][0]['user_id']" ,checkUser[0][0]['user_id']);
+        if (checkUser) {
+            // console.log("hey");
+            let record=await sequelize.query(`
+            SELECT u.user_id, u.username, t.trip_name, t.date
+            FROM users u
+            JOIN trip t ON u.user_id = t.user_id
+            WHERE u.user_id = ${checkUser[0][0]['user_id']};
+            `)
+            res.status(200).send(record[0])
+        }
+        else {
+            console.log("eeeerrrrrooooorrrr");
+            res.status(400).send()
+        }
+
+        //     .then((dbRes) => {
+        //     res.status(200).send(dbRes[0])
+        //  }).catch(err => console.log('error checking data', err))
 
     },
 
@@ -66,7 +83,7 @@ module.exports = {
     },
     getUserTripDetails: (req, res) => { 
         let {userId}=req.body
-        console.log("inside getUserTripDetails ",userId );
+        // console.log("inside getUserTripDetails ",userId );
         const userTripData = sequelize.query(`
         SELECT u.username, t.trip_name, t.date
         FROM users u
@@ -74,7 +91,7 @@ module.exports = {
         WHERE u.user_id = ${userId};
 
         `).then((dbRes) => {
-            console.log("DAta: : ",dbRes[0]);
+            // console.log("DAta: : ",dbRes[0]);
             res.status(200).send(dbRes[0])
          }).catch(err => console.log('error retriving data', err))
 

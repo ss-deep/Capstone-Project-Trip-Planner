@@ -43,20 +43,24 @@ document.addEventListener('DOMContentLoaded', function () {
       })
         .then((res) => {
           let userData = res.data
-          if (userData.length) {
-            // console.log("login id :",userData[0].user_id);
+          // alert("ola")
+          console.log("login id :",userData);
+          // displayList(userData)
+          if (userData) {
             userId = userData[0].user_id
             username=userData[0].username
+            // console.log(userId);
             const plannerModal = new bootstrap.Modal(document.getElementById('plannerModal'));
             const loginModalInstance = bootstrap.Modal.getInstance(loginModal);
             loginModalInstance.hide();
             plannerModal.show();
+            alert("HI")
 
           } else {
             document.getElementById('feedback').style.visibility = 'visible'
             loginUserName.value = ""
             loginPassword.value=""
-            console.log("Not Found");
+            console.log("user entry not Found");
           }
         }).catch((err) => {
           console.log("Error in login");
@@ -70,6 +74,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 })
 
+function displayList(data){
+  const previousTripsList = document.getElementById("previous-trips")
+  console.log("display : ",data);
+  for (i = 0; i < data.length; i++) {
+    let option = document.createElement("option");
+    option.text = data[i].trip_name;
+    option.value = `option${i}`;
+    previousTripsList.appendChild(option);
+  }
+
+}
 
 signUpButton.addEventListener('click', () => { 
   console.log({signupUserName,signupEmail,signupPassword});
